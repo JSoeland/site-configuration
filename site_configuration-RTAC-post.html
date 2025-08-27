@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Site Configuration</title>
+
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+ <link rel="stylesheet" href="assets/css/config.css" />
+
+
+<style>
+/* Tab buttons */
+    .tabs {
+      display: flex;
+    }
+
+    .tab-button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-right: 5px;
+	  background:none;
+	  color:#fff;
+	  position:relative;
+	  top:1px;
+    }
+
+    .tab-button.active {
+      border-bottom: 2px solid #0071CE;
+	  z-index:2;
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+      padding: 0 20px 20px 20px;
+	  border-top: 1px solid #3E3E3E;
+      z-index: 1;
+      position: relative;
+	  overflow-y:scroll;
+    }
+
+    .tab-content.active {
+      display: flex;
+    }
+
+    .left-column {
+      width: 25%;
+      padding: 20px 20px 0 0;
+	  border-right:1px solid #3E3E3E;
+	  height:80vh;
+    }
+	 .left-column-device {
+      padding: 20px 20px 0 0;
+	  height:80vh;
+    }
+
+
+    .left-column ul {
+      list-style-type: none;
+      padding: .5rem 0;
+    }
+.left-column h6 {
+  font-size:12px;
+  text-transform: uppercase;
+}
+    .left-column li {
+      padding: .5rem;
+	  display:flex;
+	  align-items:center;
+	  border-radius:6px;
+    }
+	.left-column li i:nth-child(2) {
+	  color:#49A4EF;
+	  padding:.25rem;
+	  font-size:1.5rem;
+	}
+
+    .right-column {
+      width: 75%;
+	  height:80vh;
+      padding: 20px 0 0 20px;
+    }
+
+    .right-column h2 {
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+table i {
+font-size:1.3rem;
+}
+     td {
+      border-bottom: 2px solid #2b2b2b;
+	  background:#212121;
+    }
+
+    th, td {
+      padding: 4px;
+      text-align: left;
+    }
+	tbody td:nth-child(3) {
+	text-align:right;
+	}
+	
+		tbody.nrl td:nth-child(3) {
+	text-align:left !important;
+	}
+
+   .highlight-green {
+      color:#7AFFBF;
+   }
+   .disabled {
+     opacity:0.4;
+	 cursor:none;
+   }
+</style>
+
+</head>
+<body>
+  <div class="main-container">
+    <!-- Sidebar 1 -->
+     <div class="sidebar-1">
+      <div>
+	  <div class="tooltip-container">
+	    <div class="nav-item-main"><i class="ti ti-menu-2"></i></div>
+			<div class="tooltip-text">Expand</div>
+		</div>
+       <div class="tooltip-container">
+			<div class="nav-item-main"><i class="ti ti-bolt"></i></div>
+			<div class="tooltip-text">Trimark Library</div>
+		</div>
+        <div class="tooltip-container">
+		<div class="nav-item-main"><i class="ti ti-map-pin selected"></i></div>
+			<div class="tooltip-text">Site Configurations</div>
+		</div>
+      </div>
+	   <div class="tooltip-container">
+      <i class="ti ti-plus"></i>
+	  			<div class="tooltip-text">Create Configuration</div>
+	  </div>
+    </div>
+
+    <!-- Sidebar 2 -->
+    <div class="sidebar-2">
+      <div class="header">Hyperion</div>
+
+      <div class="search">
+         <div class="left">
+         <i class="ti ti-search"></i>
+       </div>
+		<div class="right">
+			 
+<div id="dropdown1" class="customDropdown">
+  <div class="selected plus"><i class="ti ti-plus"></i></div>
+  <div class="options">
+    <div class="option"><i class="ti ti-folder"></i> New Folder</div>
+	<div class="option">Devices</div>
+    <div class="optionT"  onclick="toggleSidebar()" style="cursor:pointer;"><i class="ti ti-bolt"></i> Trimark Library</div>
+    <div class="option"><i class="ti ti-circle-dotted"></i> Build New Device</div>
+	 <div class="option"><i class="ti ti-line-dashed"></i> DNP</div>
+	  <div class="option"><i class="ti ti-line-dashed"></i> Modbus</div>
+	   <div class="option"><i class="ti ti-line-dashed"></i> OPC</div>
+  </div>
+</div>
+		</div>
+      </div>
+
+      <div class="nav-item"><i class="ti ti-table-options"></i>Site Settings</div>
+ <div class="active-section">
+  <div class="nav-item" onclick="window.location='./site_configuration.html';" style="cursor:pointer">
+    <i class="ti ti-layout"></i>Site Equipment
+  </div>
+
+  <div class="nav-item">
+    <div class="nested-row">
+      
+	   <span id="toggleModels" class="active" onclick="showSubmenu('models-submenu')" style="cursor:pointer;">
+	  <i class="ti ti-list"></i>Tree
+	  </span>
+
+      <!-- "Models" is now clickable -->
+      <span id="toggleModels2" onclick="showSubmenu('models-submenu2')" style="cursor:pointer;">
+        <i class="ti ti-bolt"></i>Models
+      </span>
+    </div>
+
+<div id="models-submenu" style="display:block;">
+<div class="nav-item"><i class="ti ti-chevron-down"></i><i class="ti ti-folder"></i>Substation</div>
+  <div class="nav-item device pointer indent selected-item" onclick="window.location='./site_configuration-RTAC.html';"><img src="assets/images/RTAC.svg">RTAC</div>
+  <div class="nav-item device indent"><img src="assets/images/meter.svg">Meter</div>
+  <div class="nav-item"><i class="ti ti-chevron-right"></i><i class="ti ti-folder"></i>Inverters</div>
+ </div>
+	<!-- Hidden list of nav-items under Models -->
+    <div id="models-submenu2" style="display:none;">
+      <div class="nav-item device"><img src="assets/images/meter.svg">SEL-735 <span>1</span></div>
+      <div class="nav-item device"><img src="assets/images/RTAC.svg">SEL-3555 <span>1</span></div>
+      <div class="nav-item device"><img src="assets/images/inverter.svg">SMA 2600 <span>5</span></div>
+    </div>
+  </div>
+
+</div>
+	  
+	  <div class="nav-item"><i class="ti ti-trash"></i>Trash</div>
+   
+   </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div id="dropdown2" class="customDropdown pointer">
+			<div class="selected">
+			Version / <span class="highlight-green">Active</span><i class="ti ti-chevron-down"></i>
+			</div>
+		  <div class="options middle">
+			<div class="option"><i class="ti ti-history"></i>Show Version History</div>
+			<div class="option"><i class="ti ti-file"></i>Save as New Draft</div>
+			<div class="option no-select disabled" id="publishOption"><i class="ti ti-upload"></i>Publish</div>
+		  </div>
+		</div>
+      </div>
+<div class="profile pointer" onclick="window.location='./substation.html';">
+       <div class="avatar-initial">J</div>
+</div>
+      <!-- Header -->
+      <div class="content-header">
+	  <h6>Automation Controller</h6>
+	  <div>RTAC<div class="model-pill"><i class="ti ti-bolt"></i>SEL-3555</div></div>
+	  </div>
+
+      <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab(0)">Device</button>
+    <button class="tab-button" onclick="showTab(1)">Points</button>
+    <button class="tab-button" onclick="showTab(2)">Calculations</button>
+    <button class="tab-button" onclick="showTab(3)">Alarms</button>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="tab-content active">
+    
+    <div class="left-column-device">
+      <h3>DNP Client</h3>
+      
+<div class="form-container">
+   <div class="form-row">
+      <label for="dropdown">Connection Type</label>
+      <select name="dropdown">
+        <option value="option1">TCP</option>
+        <option value="option2">Serial</option>
+      </select>
+    </div>
+	
+ <hr>
+   <div class="form-row">
+      <label for="amount">Default IP Address</label>
+      <div class="input-wrapper">
+        <input type="text" id="amount" name="amount" placeholder="10.90.43.36" value="10.90.43.36">
+      </div>
+    </div>
+	  <div class="form-row">
+      <label for="weight">Local Address</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="1" value="1">
+      </div>
+    </div>
+	
+	  <div class="form-row">
+      <label for="weight">Default Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="5000" value="5000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	 <div class="form-row">
+      <label for="weight">Exploratory Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="60000" value="60000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	
+  </div>
+  <br/>
+  <h4>DNP Server</h4>
+  <div style="color:#49A4EF">Add Server</div>
+  <div class="form-container">
+    
+ 
+   <div class="form-row">
+      <label for="amount">Server Name</label>
+      <div class="input-wrapper">
+        <input type="text" id="amount" name="amount" placeholder="" value="SEL 3555">
+      </div>
+    </div>
+	   <div class="form-row">
+      <label for="amount">IP Address</label>
+      <div class="input-wrapper">
+        <input type="text" id="amount" name="amount" placeholder="10.90.43.36" value="10.90.43.36">
+      </div>
+    </div>
+	
+	  <div class="form-row">
+      <label for="weight">Port</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="2000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="dropdown">SSL</label>
+      <select name="dropdown">
+        <option value="option1">Disable SSL (TLS)</option>
+        <option value="option2">Enable SSL (TLS)</option>
+      </select>
+    </div>
+	 <div class="form-row">
+      <label for="weight">Remote Address</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="1">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<hr>
+	<div class="form-row">
+      <label for="weight">Response Timeout</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="3000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Offline Delay</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="10000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<hr>
+	<div class="form-row">
+      <label for="weight">Static Read Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="60000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Scan Offset</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="0">
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Class 0 Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="5000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Class 1 Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="5000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Class 2 Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="5000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="weight">Class 3 Scan Rate</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="5000">
+        <span class="hint">ms</span>
+      </div>
+    </div>
+	<div class="form-row">
+      <label for="dropdown">Unsolicited</label>
+      <select name="dropdown">
+        <option value="option1">Enable unsolicited messaging from the server</option>
+        <option value="option2">Disable unsolicited messaging from the server</option>
+      </select>
+    </div>
+	<div class="form-row">
+      <label for="weight">Max Retries</label>
+      <div class="input-wrapper">
+        <input type="number" id="weight" name="weight" placeholder="" value="3">
+      </div>
+    </div>
+	<hr>
+  </div>
+  
+  
+    </div>
+  </div>
+
+  <div class="tab-content">
+    <div class="left-column">
+      <ul>
+        <li class="selected-item">All</li>
+        <li><i class="ti ti-chevron-right"></i><i class="ti ti-arrow-left"></i>Binary Inputs</li>
+        <li><i class="ti ti-chevron-right"></i><i class="ti ti-arrow-left"></i>Binary Outputs</li>
+        <li><i class="ti ti-chevron-right"></i><i class="ti ti-arrow-left"></i>Analog Inputs</li>
+        <li><i class="ti ti-chevron-right"></i><i class="ti ti-arrow-left"></i>Analog Outputs</li>
+      </ul>
+    </div>
+    <div class="right-column">
+      <h3>All Points</h3>
+	  <div class="table-buttons">
+	     <div class="ap">
+			
+			<div id="dropdown3" class="customDropdown pointer">
+			<div class="selected">
+				<div class="add-button">Add Points <i class="ti ti-chevron-down"></i></div>
+			</div>
+		  <div class="options">
+			<div class="option"><i class="ti ti-arrow-bar-up"></i>Import</div>
+			<div class="option"><i class="ti ti-arrow-bar-down"></i>Export</div>
+			<div class="option-header"><h6>Incoming</h6></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Analog Inputs</div><div><span>Read</span><span>Obj. 30,32</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Analog Output Status</div><div><span>Read</span><span>Obj. 40,42</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Binary Inputs</div><div><span>Read</span><span>Obj. 1,2</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Binary Output Status</div><div><span>Read</span><span>Obj. 10,11</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Counters</div><div><span>Read</span><span>Obj. 20,22</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Frozen Counters</div><div><span>Read</span><span>Obj. 21,23</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-left light-blue"></i>Tristates (Double-bit)</div><div><span>Read</span><span>Obj. 3,4</span></div></div>
+			<div class="option-header"><h6>Outgoing</h6></div>
+			<div class="option details"><div><i class="ti ti-arrow-right light-blue"></i>Analog Outputs</div><div><span>Read?Write</span><span>Obj. 41</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-right light-blue"></i>Analog Setpoint</div><div><span>Write</span><span>Obj. 41</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-right light-blue"></i>Binary Controls</div><div><span>Write</span><span>Obj. 12</span></div></div>
+			<div class="option details"><div><i class="ti ti-arrow-right light-blue"></i>Binary Outputs</div><div><span>Read/Write</span><span>Obj. 12</span></div></div>
+		  </div>
+		</div>
+		
+		
+			<div class="clear-button">Clear <i class="ti ti-filter"></i></div>
+		</div>
+		 <div class="settings-button"><i class="ti ti-settings"></i></div>
+	  </div>
+      <table>
+        <thead> 
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-down"></i> <div class="chip-device">11-C1</div> SEL-487V</div></th></tr>
+        <tr>
+		<th style="width:3%;"></th>
+		<th style="width:4%;"><i class="ti ti-square"></i></th>
+		<th style="text-align:right; width:4%;">Index</th>
+		<th style="width:28%;">Point</th>
+		<th style="width:20%;">Dataset</th>
+		<th style="width:40%;">Tags<i class="ti ti-filter"></i></th>
+		</tr>
+        </thead>
+        <tbody>
+            <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>51</td>
+			<td>11 C1 Q</td>
+			<td><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td>
+			<td><div class="chip-green">True:HMI</div><div class="chip-purple">Capcacitor Bank</div></td></tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>92</td><td>43LR Status</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Binary Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Capacitor Bank</div></td></tr>
+        </tbody>
+      </table>
+	  <table>
+        <thead> 
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-down"></i> <div class="chip-device">11-HV1</div> SEL-351S</div></th></tr>
+        </thead>
+        <tbody>
+            <tr>
+			<td style="width:3%;"></td>
+			<td style="width:4%;"><i class="ti ti-square"></i></td>
+			<td style="width:4%;">16</td>
+			<td style="width:28%;">Real Power-Ph 3</td>
+			<td style="width:20%;"><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td>
+			<td style="width:40%;"><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td>
+			</tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>17</td><td>Reactive Power-Ph 3</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>18</td><td>52 HV1 Status</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Binary Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>19</td><td>43LR HV1 Status</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Binary Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+        </tbody>
+      </table>
+	  <table>
+        <thead> 
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-down"></i> <div class="chip-device">11-F1</div> SEL-751</div></th></tr>
+        </thead>
+        <tbody>
+            <tr>
+			<td style="width:3%;"></td>
+			<td style="width:4%;"><i class="ti ti-square"></i></td>
+			<td style="width:4%;">40</td>
+			<td style="width:28%;">11 F1 P</td>
+			<td style="width:20%;"><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td>
+			<td style="width:40%;"><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td>
+			</tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>41</td><td>11 F1 Q</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>71</td><td>43LR F1 Status</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+			<tr><td></td><td><i class="ti ti-square"></i></td><td>74</td><td>52 F1 TC1 Status</td><td><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td><td><div class="chip-green">True:HMI</div><div class="chip-purple">Relay</div></td></tr>
+        </tbody>
+      </table>
+	  <table>
+        <thead> 
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-down"></i> <div class="chip-device">T1-MON</div> SEL-2414</div></th></tr>
+        </thead>
+        <tbody>
+            <tr>
+			<td style="width:3%;"></td>
+			<td style="width:4%;"><i class="ti ti-square"></i></td>
+			<td style="width:4%;">33</td>
+			<td style="width:28%;">T1MON Spare</td>
+			<td style="width:20%;"><div class="dataset"><i class="ti ti-arrow-left"></i>Analog Inputs</div></td>
+			<td style="width:40%;"><div class="chip-green">True:HMI</div><div class="chip-purple">Transformer Monitor</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tab-content">
+    <div class="left-column">
+      <ul>
+        <li class="selected-item">All</li>
+        <li>11 C1 Communication Failure</li>
+		<li>11 C1 Relay Disabled</li>
+        <li>11 F1 Communication Failure</li>
+        <li>11 F1 Relay Alarm</li>
+        <li>11 F1 Relay Disabled</li>
+        <li>11 F1 Spring Charge</li>
+        <li>87T1-BU Communication Failure</li>
+        <li>87T1-BU Relay Disabled</li>
+        <li>87T1-BU Relay Trip</li>
+        <li>87T1-P Communication Failure</li>
+        <li>87T1-P Relay Disabled</li>
+        <li>87T1-P Status</li>
+        <li>87T1-P TCM Status</li>
+        <li>87T1-P Oil Temperature Trip</li>
+        <li>87T1-P Winding Temp Trip</li>
+        <li>87T1-P Relay Trip</li>
+        <li>DPAC Communication Alarm</li>
+		<li>DPAC Relay Disabled</li>
+		<li>DPAC IRIG</li>
+		<li>DPAC Low Temp </li>
+		<li>DPAC MET HV1 Alarm</li>
+      </ul>
+    </div>
+    <div class="right-column">
+      <h3>All Calculations</h3>
+	  <div class="table-buttons">
+	     <div class="ap">
+			
+			<div id="dropdown3" class="customDropdown pointer">
+			<div class="selected">
+				<div class="add-button">Add Calculation <i class="ti ti-chevron-down"></i></div>
+			</div>
+		  <div class="options">
+			<div class="option">Trimark Library</div>
+			<div class="option">Build New Calculation</div>
+		  </div>
+		</div>
+		
+		</div>
+		 <div class="settings-button"><i class="ti ti-settings"></i></div>
+	  </div>
+     
+	  <table>
+        <thead> 
+		<tr>
+		<th><i class="ti ti-square"></i></th>
+		<th>Name</th>
+		<th>Calculation Type</th>
+		<th>Calculation Inputs</th>
+		</tr>
+        </thead>
+        <tbody class="nrl">
+            <tr>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Communication Failure</td>
+			<td>Inactivity Alarm</td>
+			<td><div class="chip-blue">87T1 P Communication Failure</div></td>
+			</tr>
+			  <tr>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1 P Oil Temp Trip</td>
+			<td>Comparator</td>
+			<td><div class="chip-blue">87T1 P Oil Temp Trip</div></td>
+			</tr>
+			  <tr>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1 P Relay Trip</td>
+			<td>Inactivity Alarm</td>
+			<td><div class="chip-blue">87T1 P Relay Trip</div></td>
+			</tr>
+			  <tr>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1 P Relay Disabled</td>
+			<td>Inactivity Alarm</td>
+			<td><div class="chip-blue">87T1 P Relay Disabled</div></td>
+			</tr>
+			  <tr>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1 P Relay Trip</td>
+			<td>Inactivity Alarm</td>
+			<td><div class="chip-blue">87T1 P Relay Trip</div></td>
+			</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tab-content">
+    <div class="left-column">
+      <ul>
+        <li class="selected-item">All</li>
+        <li>11 C1 Communication Failure</li>
+		<li>11 C1 Relay Disabled</li>
+        <li>11 F1 Communication Failure</li>
+        <li>11 F1 Relay Alarm</li>
+        <li>11 F1 Relay Disabled</li>
+        <li>11 F1 Spring Charge</li>
+        <li>87T1-BU Communication Failure</li>
+        <li>87T1-BU Relay Disabled</li>
+        <li>87T1-BU Relay Trip</li>
+        <li>87T1-P Communication Failure</li>
+        <li>87T1-P Relay Disabled</li>
+        <li>87T1-P Status</li>
+        <li>87T1-P TCM Status</li>
+        <li>87T1-P Oil Temperature Trip</li>
+        <li>87T1-P Winding Temp Trip</li>
+        <li>87T1-P Relay Trip</li>
+        <li>DPAC Communication Alarm</li>
+		<li>DPAC Relay Disabled</li>
+		<li>DPAC IRIG</li>
+		<li>DPAC Low Temp </li>
+		<li>DPAC MET HV1 Alarm</li>
+      </ul>
+    </div>
+    <div class="right-column">
+      <h3>All Alarms</h3>
+	  <div class="table-buttons">
+	     <div class="ap">
+			
+			<div id="dropdown3" class="customDropdown pointer">
+			<div class="selected">
+				<div class="add-button">Add Alarm <i class="ti ti-chevron-down"></i></div>
+			</div>
+		  <div class="options">
+			<div class="option">Trimark Library</div>
+			<div class="option">Build New Alarm</div>
+		  </div>
+		</div>
+		
+		</div>
+		 <div class="settings-button"><i class="ti ti-settings"></i></div>
+	  </div>
+      
+	   <table>
+	    <thead> 
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-right"></i> <div class="chip-device">11-C1</div> SEL-487V</div></th></tr></thead>
+		 <thead> <tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-right"></i> <div class="chip-device">11-F1</div> SEL-751</div></th></tr></thead>
+	    <thead> <tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-right"></i> <div class="chip-device">87T1-BU</div> SEL-387V</div></th></tr> </thead>
+        <thead><tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-down"></i> <div class="chip-device">87T1-P</div> SEL-387A</div></th></tr>
+        <tr>
+		<th style="width:3%;"></th>
+		<th><i class="ti ti-square"></i></th>
+		<th>Name</th>
+		<th>Alarm Type</th>
+		<th>Raise Condition</th>
+		<th>Severity</th>
+		</tr>
+        </thead>
+        <tbody class="nrl">
+            <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Communication Failure</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Communication Failure</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Oil Temperature Trip</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Oil Temperature Trip</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Relay Alarm</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Relay Alarm</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Relay Disabled</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Relay Disabled</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Relay Trip</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Relay Trip</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P 86T1 P Status</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P 86T1 P Status</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+					    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P 86T1 P TCM Status</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P 86T1 P TCM Status</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+					    <tr>
+			<td></td>
+			<td><i class="ti ti-square"></i></td>
+			<td>87T1-P Winding Temp Trip</td>
+			<td>Point Analysis</td>
+			<td><div class="chip-green">87T1-P Winding Temp Trip</div></td>
+			<td><div class="alarm"><i class="ti ti-alert-triangle"></i>High</div></td>
+			</tr>
+			
+			
+        </tbody>
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-right"></i> <div class="chip-device">DPAC</div> SEL-2440</div></th></tr>
+		<tr><th colspan="6"><div class="table-device-header"><i class="ti ti-chevron-right"></i> <div class="chip-device">T1-MON</div> SEL-2414</div></th></tr>
+      </table>
+    </div>
+  </div>
+
+      
+    </div>
+  </div>
+  
+ <div id="publishModal" class="modal" style="display: none;">
+  <div class="modal-content2">
+    <span class="close">&times;</span>
+    <h4>Publish Configuration</h4>
+
+    <textarea
+      id="publishMessage"
+      rows="5"
+      placeholder="Congifuration Notes"
+      style="width: 100%; margin: 15px 0;"
+    ></textarea>
+
+    <div class="modal-actions">
+      <button id="modalCloseBtn">Close</button>
+      <button id="confirmPublish">Publish</button>
+    </div>
+  </div>
+</div>
+
+<!-- === Battery Modal === -->
+<div id="batteryModal" class="modal">
+  <div class="modal-content2">
+    <span class="close" id="closeBattery">&times;</span>
+    <div class="battery">
+      <div class="charge" id="chargeBar"></div>
+    </div>
+	<h4 style="text-align:center;">Publishing...</h4>
+	<p style="text-align:center;">The Site Configuration for Hyperion is being activated.</p>
+  </div>
+</div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all dropdowns with IDs that start with "dropdown"
+    const dropdowns = Array.from(document.querySelectorAll('[id^="dropdown"]'));
+
+    function closeAllDropdowns() {
+      dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
+    }
+
+    dropdowns.forEach(dropdown => {
+      const selected = dropdown.querySelector('.selected');
+      const options = dropdown.querySelectorAll('.option');
+
+      selected.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAllDropdowns();
+        dropdown.classList.toggle('open');
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+		if (this.classList.contains('no-select')) return;
+          selected.textContent = option.textContent;
+          dropdown.classList.remove('open');
+        });
+      });
+    });
+
+    document.addEventListener('click', () => {
+      closeAllDropdowns();
+    });
+  });
+</script>
+
+<!-- JS for tab switching -->
+  <script>
+    function showTab(index) {
+      const buttons = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      buttons[index].classList.add('active');
+      contents[index].classList.add('active');
+    }
+  </script>
+  
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const publishOption = document.getElementById('publishOption');
+    const modal = document.getElementById('publishModal');
+    const closeBtn = modal.querySelector('.close');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const confirmPublish = document.getElementById('confirmPublish');
+
+    // Open modal on "Publish" click
+    publishOption.addEventListener('click', function (event) {
+      event.stopPropagation();
+      modal.style.display = 'block';
+    });
+
+    // Close modal buttons
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modalCloseBtn.addEventListener('click', () => modal.style.display = 'none');
+
+    // Handle Publish button
+    confirmPublish.addEventListener('click', function () {
+      const message = document.getElementById('publishMessage').value;
+      console.log('Publishing with message:', message);
+      
+      // TODO: Add your actual publish logic here
+
+      modal.style.display = 'none'; // Close modal after publish
+    });
+
+    // Close modal if clicked outside
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const publishOption = document.getElementById('publishOption');
+    const publishModal = document.getElementById('publishModal');
+    const batteryModal = document.getElementById('batteryModal');
+    const closePublishBtn = publishModal.querySelector('.close');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const confirmPublish = document.getElementById('confirmPublish');
+    const closeBatteryBtn = document.getElementById('closeBattery');
+
+    // Open publish modal
+    if (publishOption) {
+      publishOption.addEventListener('click', function (event) {
+        event.stopPropagation();
+        publishModal.style.display = 'block';
+      });
+    }
+
+    // Close publish modal
+    closePublishBtn.addEventListener('click', () => publishModal.style.display = 'none');
+    modalCloseBtn.addEventListener('click', () => publishModal.style.display = 'none');
+
+    // Close battery modal
+    closeBatteryBtn.addEventListener('click', () => batteryModal.style.display = 'none');
+
+    // Handle confirm publish
+    confirmPublish.addEventListener('click', function () {
+      const message = document.getElementById('publishMessage').value;
+      console.log('Publishing with message:', message);
+
+      // Close publish modal
+      publishModal.style.display = 'none';
+
+      // Reset battery animation by cloning the .charge div
+      const chargeBar = document.getElementById('chargeBar');
+      const newBar = chargeBar.cloneNode(true);
+      chargeBar.parentNode.replaceChild(newBar, chargeBar);
+
+      // Show battery modal
+      batteryModal.style.display = 'block';
+
+      // Wait for animation to finish, then redirect
+      setTimeout(() => {
+        window.location.href = "success.html"; // Change this
+      }, 4000); // Match animation duration
+    });
+
+    // Close modals if clicking outside
+    window.addEventListener('click', function (event) {
+      if (event.target === publishModal) {
+        publishModal.style.display = 'none';
+      }
+      if (event.target === batteryModal) {
+        batteryModal.style.display = 'none';
+      }
+    });
+  });
+</script>
+<script>
+  function toggleModels() {
+    const submenu = document.getElementById("models-submenu");
+    submenu.style.display = submenu.style.display === "none" ? "block" : "none";
+  }
+</script>
+
+<script>
+  function showSubmenu(menuToShowId) {
+    const submenus = ['models-submenu', 'models-submenu2'];
+
+    submenus.forEach(id => {
+      document.getElementById(id).style.display = (id === menuToShowId) ? 'block' : 'none';
+    });
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const spans = document.querySelectorAll(".nested-row span");
+
+    spans.forEach(span => {
+      span.addEventListener("click", () => {
+        // Remove 'active' from all spans
+        spans.forEach(s => s.classList.remove("active"));
+        // Add 'active' to the clicked one
+        span.classList.add("active");
+      });
+    });
+  });
+</script>
+</body>
+</html>
