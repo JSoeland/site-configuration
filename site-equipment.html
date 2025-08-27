@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trimark | True:Control</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/accordion.css" />
+<script src="assets/js/chart.min.js"></script>
+
+<style>
+#energyChart {
+width:880px !important;
+height:480px !important;
+}
+
+</style>
+</head>
+
+<body style="overflow-x:hidden">
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+	
+	<header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="site-title">
+			  Hyperion
+            </li>
+			   
+          </ul>
+		 
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+               <li>
+				<div class="weather">
+					<ul>
+					<li id="pst-time"></li>
+					<li id="utc-time"></li>
+					<li>82° F Sunny <i class="ti ti-sun"></i></li>
+					</ul>
+				</div>
+				</li>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                 <div class="avatar-initial">J</div>
+                </a>
+               
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+	  
+	  
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="notification-red2">•</div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+		  
+		  <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-timeline-event"></i>
+                </span>
+                <span class="hide-menu">Site Status</span>
+              </a>
+            </li>
+			<li class="sidebar-item active-page">
+              <a class="sidebar-link" href="./site-equipment.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span>Site Equipment</span>
+              </a>
+            </li>
+			<li class="sidebar-item indent">
+			    <a class="sidebar-link" href="./substation.html" aria-expanded="false">
+                <span class="hide-menu">Substation</span>
+				</a>
+            </li>
+			<!--
+			<li class="sidebar-item indent no-link">
+                <span class="hide-menu">Met Data</span>
+            </li>
+			-->
+			<!--<li class="sidebar-item indent no-link">
+                <span class="hide-menu">Network</span>
+            </li>
+			-->
+			<li class="sidebar-item indent">
+              <a class="sidebar-link" href="./inverters.html" aria-expanded="false">
+                <span class="hide-menu">Inverters</span>
+              </a>
+            </li>
+			<!--
+			<li class="sidebar-item indent no-link">
+                <span class="hide-menu">Trackers</span>
+            </li>
+			-->
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./points.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-hierarchy-2"></i>
+                </span>
+                <span class="hide-menu">Points</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./alarms.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-triangle"></i>
+                </span>
+                <span class="hide-menu">Alarms</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./controls.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-adjustments"></i>
+                </span>
+                <span class="hide-menu">Controls</span>
+              </a>
+            </li>
+            			<!--
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./trends.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-chart-line"></i>
+                </span>
+                <span class="hide-menu">Trends</span>
+              </a>
+            </li>
+			-->
+			<li class="sidebar-item">
+              <a class="sidebar-link" href="./logs.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Logs</span>
+              </a>
+            </li>
+          </ul>
+         
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      
+	  
+      <!--  Header End -->
+      <div class="container-fluid">
+	  
+	  
+	  <div class="row mb-3">
+          <div class="col-lg-6">
+			 <h3>Site Equipment</h3>
+            </div>
+		
+	  </div>
+        <!--  Row 1 -->
+					
+		<div class="row">
+		  
+		  	 <div class="col-lg-4">
+              <div class="card overflow-hidden" style="height:482px;">
+                  <div class="card-body">
+                    <div class="row justify-content-center">
+					   <div class="col-12 mt-4">
+                        <div class="circle-chart">
+  <div class="circle" id="circle">
+    <div class="inside-circle" id="circle-text">0%</div><span>Online</span>
+  </div>
+</div>
+						</div>
+						  <div class="col-12 mt-4">
+						  <div class="row equipment-list">
+						  		<div class="col-3"></div>
+						  		<div class="col-3"><span class="graydot">•</span>3 / 3</div>
+						  		<div class="col-6">Meters</div>
+						  </div>
+						  <div class="row equipment-list" onclick="window.location='./inverters.html';" style="cursor:pointer;">
+						  		<div class="col-3"></div>
+						  		<div class="col-3"><span class="yellowdot2">•</span>23 / 24</div>
+						  		<div class="col-6">Inverters</div>
+						  </div>
+						   <div class="row equipment-list">
+						  		<div class="col-3"></div>
+						  		<div class="col-3"><span class="graydot">•</span>20 / 20</div>
+						  		<div class="col-6">Trackers</div>
+						  </div>
+						  			  <div class="row equipment-list">
+						  		<div class="col-3"></div>
+						  		<div class="col-3"><span class="graydot">•</span>2 / 2</div>
+						  		<div class="col-6">Meteorological</div>
+						  </div>
+						   
+						</div>
+					  </div>
+                    </div>
+                  </div>
+            </div>
+		  <div class="col-lg-8">
+                <!-- Yearly Breakup -->
+				<div class="card">
+                    <div class="row">
+                       <div class="chart-container"> <canvas id="energyChart"></canvas></div>
+                  </div>
+            </div>
+          </div>
+		</div>
+		
+		
+		<div class="row mb-4">
+		 
+		 	 <div class="col-lg-4">
+		<div class="carda alarm-card">
+           <h3>Alarms</h3>
+		    	   <div class="row mt-2 alarm-row" onclick="window.location='./index_device.html';" style="cursor:pointer;">
+				 <div class="col-lg-3">
+					<div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div>
+				</div>
+				 <div class="col-lg-3">10:02 AM</div>
+				<div class="col-lg-6">Inverter 1.A.2</div>
+				</ul>
+          </div>
+		   <div class="row alarm-row">
+		    <div class="col-lg-3">
+					<div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div>
+				</div>
+		   <div class="col-lg-3">9:22 AM</div>
+				 <div class="col-lg-6">Fiber Access Switch 2.C.8</div>
+				</ul>
+          </div>
+		  	   <div class="row alarm-row">
+			   <div class="col-lg-3">
+					<div class="alarm-pill-medium"> <i class="ti ti-alert-triangle"></i>Medium</div>
+				</div>
+		   <div class="col-lg-3">8:49 AM</div>
+				 <div class="col-lg-6">POI Meter</div>
+				</ul>
+          </div>
+		    
+		  	   <div class="row mt-2">
+		   <a href="./alarms.html" style="color:#fff; text-align:right;">View All (8)</a>
+				</div>
+				</ul>
+          </div>
+		  
+        </div>
+		
+		 <div class="col-lg-4">
+        <div class="carda">
+          <h3>POI Meter</h3>
+		  <div class="equipment-emphasis"><h2>199.9 <span>MW</span></h2></div>
+          <ul class="equipment"><li>Bus Voltage</li><li>34.5</li><li>kV</li></ul>
+		  <ul class="equipment"><li>Reactive Power</li><li>-11.2</li><li>MVAR</li></ul>
+          <ul class="equipment"><li>Power Factor</li><li>1.0</li><li>PF</li></ul>
+        </div>
+		</div>
+		 <div class="col-lg-4">
+        <div class="carda">
+           <h3>Inverter</h3>
+		  <div class="equipment-emphasis"><h2 class="alarm-medium">23/24 <span>Online</span></h2></div>
+		  <ul class="equipment"><li>Total DC Power</li><li>206.9</li><li>MW</li></ul>
+          <ul class="equipment"><li>Total AC Power</li><li>203.6</li><li>MW</li></ul>
+		  <ul class="equipment"><li>Efficiency</li><li>98</li><li>%</li></ul>
+        </div>
+		 </div>
+	
+		 </div>
+     
+	 
+	  
+
+<!--  
+		<div class="row">
+		<div class="card-grid2">
+        <div class="carda">
+          <h3>Meter</h3><br>
+		  <ul class="equipment"><li>Power</li><li>5.19</li><li>MW</li></ul>
+          <ul class="equipment"><li>Bus Voltage</li><li>19.96</li><li>kV</li></ul>
+		  <ul class="equipment"><li>VAR</li><li>-1.73</li><li>MVAR</li></ul>
+          <ul class="equipment"><li>Power Factor</li><li>0.9</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3>Meteorological</h3><br>
+		  <ul class="equipment"><li>Panel Temperature</li><li>51.44</li><li>°C</li></ul>
+          <ul class="equipment"><li>Global Irradiance</li><li>636.33</li><li>W/m²</li></ul>
+		  <ul class="equipment"><li>POA Irradiance</li><li>1,026.95</li><li>W/m²</li></ul>
+          <ul class="equipment"><li>Wind Speed</li><li>1.70</li><li>mph</li></ul>
+        </div>
+        <div class="carda">
+           <h3>Inverter</h3>
+		  <div class="equipment-emphasis"><h2>20/20 <span>Online</span></h2></div>
+		  <ul class="equipment"><li>Total DC Power</li><li>0.00</li><li>MW</li></ul>
+          <ul class="equipment"><li>Total AC Power</li><li>9.13</li><li>MW</li></ul>
+        </div>
+		<div class="carda">
+           <h3>Alarms</h3>
+		  <div class="equipment-emphasis-alarm-critical"><h2>2 <span>Critical</span></h2><h2 class="alarm-high">1 <span>High</span></h2></div>
+		  <ul class="equipment-alarm"><li><span class="reddot">•</span>Fire Alarm</li><li>8:49:34 AM</li></ul>
+		  <ul class="equipment-alarm"><li><span class="reddot">•</span>Fire Alarm Control Panel Supp...</li><li>8:49:34 AM</li></ul>
+		  <ul class="equipment-alarm"><li><span class="orangedot">•</span>Connection Alarm</li><li>8:49:34 AM</li></ul>
+        </div>
+      </div>
+	  </div>
+
+-->
+		  
+	<div class="search-bar">
+	<div class="row-begin">
+	
+	  <div class="search-container">
+	  <i class="ti ti-search search-icon"></i>
+      <input type="text" placeholder="Search...">
+	  </div>
+		   <label>
+		   <div class="dd-button">Device Type <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+				<li>Inverter</li>
+				<li>Meter</li>
+				<li>Meteorological</li>
+				<li>Other</li>
+				<li>Tracker</li>
+			  </ul>
+		   </label>
+			<label>
+			<div>Protocol <i class="ti ti-chevron-down"></i></div>
+			  <input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+				<li>Modbus</li>
+				<li>DNP</li>
+				<li>OPC</li>
+			  </ul>
+			</label>
+    </div>
+	</div>
+	<table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Device Type</th>
+          <th>Device</th>
+          <th>Protocol</th>
+          <th>Error Count</th>
+		  <th>Timeouts</th>
+		  <th>Receive (Rx)</th>
+		  <th>Transmit (Tx)</th>
+		  <th>Connection Status</th>
+        </tr>
+      </thead>
+      <tbody>
+	  
+	    <tr onclick="window.location='./index_device.html';" style="cursor:pointer;">
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle"></i></div>1034456</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 1.A.2</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+			    
+	    <tr>
+		 <td><div class="alarm-icon"> <i class="ti ti-alert-triangle"></i></div>1878801</td>
+		  <td><div class="device-pill"> <i class="ti ti-gauge"></i>Meter</div></td>
+          <td><strong>Station</strong><br><small>Substation / Main Check Meter</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+	    <tr>
+		 <td><div class="alarm-icon"> <i class="ti ti-alert-triangle yellow"></i></div>1234543</td>
+		  <td><div class="device-pill"> <i class="ti ti-gauge"></i>Transformer</div></td>
+          <td><strong>Pad 4 XFMR</strong><br><small>Substation</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		
+	    <tr>
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle yellow"></i></div>1174566</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 2.C.2</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		
+	 <tr>
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle yellow"></i></div>1654547</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 2.C.5</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		
+		<tr>
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle blue"></i></div>1874456</td>
+		  <td><div class="device-pill"> <i class="ti ti-angle"></i>Tracker</div></td>
+          <td><strong>R-PCS1</strong><br><small>FS Trackers</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		
+		 <tr>
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle blue"></i></div>1654364</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 2.B.2</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		<!--	
+		<tr>
+		  <td><div class="alarm-icon"> <i class="ti ti-alert-triangle"></i></div>1234456</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 1.C.8</strong><br><small>Inverters / Eaton Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="reddot">•</span>Offline <div class="time-pill"><span>PST</span> 11:12am</div><div class="time-pill"><span>UTC</span> 7:12am</div></td>
+        </tr>
+		-->
+			<tr onclick="window.location='./index_device.html';" style="cursor:pointer;">
+		  <td>1874404</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 1.A.1</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+	
+		<tr>
+		  <td>1234456</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 1.A.4</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		<tr>
+		  <td>1234456</td>
+		  <td><div class="device-pill"> <i class="ti ti-exchange"></i>Inverter</div></td>
+          <td><strong>Inverter 1.A.5</strong><br><small>Inverters / SMA Inverters</small></td>
+          <td>Modbus</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+
+		<tr>
+		  <td>1234456</td>
+		  <td><div class="device-pill">Other</div></td>
+          <td><strong>RTAC-M</strong><br><small>Substation</small></td>
+          <td>DNP</td>
+		  <td>0</td>
+		   <td>32567</td>
+		   <td>1234456</td>
+		    <td>0</td>
+          <td><span class="greendot">•</span>Online</td>
+        </tr>
+		
+       
+        <!-- Add more rows here as needed -->
+      </tbody>
+    </table>
+	
+</div>
+
+
+  <div id="snackbar">
+		<div class="col-lg-1 left-right">
+			<i class="ti ti-chevron-left"></i>
+			<i class="ti ti-chevron-right"></i>
+	  </div>
+	  <div class="col-lg-9">
+			<div class="row">
+			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
+			<div class="col-lg-1">10:02 AM  </div>
+			<div class="col-lg-1"> Inverter 1.A.2</div>
+			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
+			 </div>
+	  </div>
+	  <div class="col-lg-2 snackbar-cta">
+	   <a href ="./alarms.html">Go to Alarms</a>
+	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
+	  </div>
+  </div>
+
+
+</div>	
+	
+
+  <script src="assets/js/sidebarmenu.js"></script>
+  <script>
+  function animateCircleChart(targetPercent, duration = 1000) {
+    const circle = document.getElementById('circle');
+    const text = document.getElementById('circle-text');
+    let start = null;
+
+    function animate(timestamp) {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const currentPercent = Math.floor(progress * targetPercent);
+
+      circle.style.background = `conic-gradient(
+        #49A4EF 0% ${currentPercent}%,
+        rgba(0,0,0,0.4) ${currentPercent}% 100%
+      )`;
+
+      text.textContent = `${currentPercent}%`;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  // Start the animation
+  animateCircleChart(94, 1000); // 90% in 1 seconds
+</script>
+<script>
+  const ctx = document.getElementById('energyChart').getContext('2d');
+
+  const labels = [
+    '6:00AM', '6:30AM', '7:00AM', '7:30AM', '8:00AM', '8:30AM', '9:00AM', '9:30AM',
+    '10:00AM', '10:30AM', '11:00AM', '11:30AM', '12:00PM', '12:30PM', '1:00PM',
+    '1:30PM', '2:00PM', '2:30PM', '3:00PM', '3:30PM', '4:00PM', '4:30PM', '5:00PM', '5:30PM', '6:00PM'
+  ];
+
+  const generationData = [
+    0, 5, 15, 30, 50, 70, 90, 120, 145, 160, 175, 185, 190, 192, 195,
+    193, 190
+  ];
+
+  const irradianceData = [
+    0, 50, 100, 180, 260, 320, 400, 450, 470, 480, 490, 495, 500, 498, 495,
+    490, 480
+  ];
+
+  const energyChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Generation (MW)',
+          data: generationData,
+          borderColor: 'rgba(73, 164, 239, 1)',
+          backgroundColor: 'rgba(73, 164, 239, 0.3)',     // fill color (blue, semi-transparent)
+		fill: true, 
+          yAxisID: 'y',
+        },
+        {
+          label: 'Irradiance (W/m²)',
+          data: irradianceData,
+          type: 'line',
+          borderColor: 'rgba(255, 191, 60, 1)',
+          backgroundColor: 'rgba(0, 0, 0, 1)',
+          yAxisID: 'y1',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        },
+        title: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          type: 'linear',
+          position: 'left',
+          title: {
+            display: true,
+            text: 'Generation (MW)',
+            color: 'white'
+          },
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.1)'
+          }
+        },
+        y1: {
+          type: 'linear',
+          position: 'right',
+          title: {
+            display: true,
+            text: 'Irradiance (W/m²)',
+            color: 'white'
+          },
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            drawOnChartArea: false
+          }
+        },
+        x: {
+  ticks: {
+    color: 'white',
+    callback: function(value, index) {
+      return index % 2 === 0 ? this.getLabelForValue(value) : '';
+    },
+    maxRotation: 0,
+    minRotation: 0
+  },
+  grid: {
+    color: 'rgba(255,255,255,0.1)'
+  }
+}
+      }
+    }
+  });
+</script>
+   <script>
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function updateTime() {
+      const now = new Date();
+
+      // UTC time (HH:MM:SS)
+      const utcHours = pad(now.getUTCHours());
+      const utcMinutes = pad(now.getUTCMinutes());
+      const utcSeconds = pad(now.getUTCSeconds());
+      document.getElementById('utc-time').textContent = `${utcHours}:${utcMinutes} UTC`;
+
+      // PST time using Intl.DateTimeFormat
+      const pstFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const pstTime = pstFormatter.format(now);
+      document.getElementById('pst-time').textContent = `${pstTime} PST`;
+    }
+
+    updateTime();
+  </script>
+  
+   <script>
+    function closeSnackbar() {
+      document.getElementById("snackbar").style.display = "none";
+    }
+  </script>
+  
+</body>
+
+</html>

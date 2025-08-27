@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trimark | True:Control</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
+  <link rel="stylesheet" href="assets/css/sidebar.css" />
+    <link rel="stylesheet" href="assets/css/accordion.css" />
+	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+	<script src="assets/js/chart.min.js"></script>
+
+</head>
+
+<body class="dot-grid">
+
+<div id="snackbar">
+		<div class="col-lg-1 left-right">
+			<i class="ti ti-chevron-left"></i>
+			<i class="ti ti-chevron-right"></i>
+	  </div>
+	  <div class="col-lg-9">
+			<div class="row">
+			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
+			<div class="col-lg-1">10:02 AM  </div>
+			<div class="col-lg-1"> Inverter 1.A.2</div>
+			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
+			 </div>
+	  </div>
+	  <div class="col-lg-2 snackbar-cta">
+	   <a href ="./alarms.html">Go to Alarms</a>
+	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
+	  </div>
+  </div>
+
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+	
+	<header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="site-title">
+			Hyperion
+            </li>
+			   
+          </ul>
+		 
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+               <li>
+				<div class="weather">
+					<ul>
+					<li id="pst-time"></li>
+					<li id="utc-time"></li>
+					<li>82° F Sunny <i class="ti ti-sun"></i></li>
+					</ul>
+				</div>
+				</li>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                 <div class="avatar-initial">J</div>
+                </a>
+               
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+	  
+	  
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="notification-red">•</div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+		  
+		  <ul id="sidebarnav">
+            	<li class="sidebar-item active-page">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-timeline-event"></i>
+                </span>
+                <span class="hide-menu">Site Status</span>
+              </a>
+            </li>
+			<li class="sidebar-item">
+              <a class="sidebar-link" href="./site-equipment.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span>Site Equipment</span>
+              </a>
+            </li>
+			
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./points.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-hierarchy-2"></i>
+                </span>
+                <span class="hide-menu">Points</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./alarms.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-triangle"></i>
+                </span>
+                <span class="hide-menu">Alarms</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./controls.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-adjustments"></i>
+                </span>
+                <span class="hide-menu">Controls</span>
+              </a>
+            </li>
+           			<!--
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./trends.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-chart-line"></i>
+                </span>
+                <span class="hide-menu">Trends</span>
+              </a>
+            </li>
+			-->
+			<li class="sidebar-item">
+              <a class="sidebar-link" href="./logs.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Logs</span>
+              </a>
+            </li>
+          </ul>
+         
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      
+	  
+      <!--  Header End -->
+      <div class="container-fluid">
+	  
+	 
+	  <div class="row mb-3">
+          <div class="col-lg-6">
+			 <h3>Site Status</h3>
+            </div>
+		
+	  </div>
+        <!--  Row 1 -->
+	<div class="search-bar">
+      <div class="row-begin">
+			  <div class="search-container">
+	  <i class="ti ti-search search-icon"></i>
+      <input type="text" placeholder="Search...">
+	  </div>
+
+		   <label>
+		   <div class="active dd-button">Alarms <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+				<li style="background:rgba(0,0,0,0.4);">Alarms</li>
+				<li>All Devices</li>
+				
+			  </ul>
+		   </label>
+		  </div>
+		  <div class="row-end">
+			<div class="right-settings"><i class="ti ti-settings"></i> </div>
+			<div class="right-settings"><i class="ti ti-reload"></i> </div>
+		   </div>
+    </div>
+	
+	
+	
+	<div class="inverter-grid">
+	 <div class="card-grid2">
+		
+		<div class="carda bg-inverter orange" onclick="toggleSidebar()" style="cursor:pointer;">
+		<div class="alarm-pill-high" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>High</div>  
+         <div class="diagram-alarm-details">   <h3>Inverter 1.A.2</h3>
+		     <ul class="diagram"><li>Inverter Fault: Insulation Impedance</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate3" readonly></li><li> <input type="text" id="tenMinutesAgoTime3" readonly></li></ul>
+		  </div>
+        </div>
+		<div class="carda bg-connection">
+		<div class="alarm-pill-high" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>High</div>  
+         <div class="diagram-alarm-details"><h3>Fiber Access Switch 2.C.8</h3>
+		     <ul class="diagram"><li>Fiber Loop Alarm</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate4" readonly></li><li> <input type="text" id="tenMinutesAgoTime4" readonly></li></ul>
+		  </div>
+        </div>
+		<div class="carda bg-meter">
+		<div class="alarm-pill-medium" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Medium</div>  
+			<div class="diagram-alarm-details"> <h3>POI Meter</h3>
+				<ul class="diagram"><li>POI Voltage - High out of Schedule</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate" readonly></li><li> <input type="text" id="tenMinutesAgoTime" readonly></li></ul>
+			 </div>    
+        </div>
+		<div class="carda bg-substation">
+		<div class="alarm-pill-medium" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Medium</div>  
+         <div class="diagram-alarm-details">  <h3>Pad 4 XFMR</h3>
+		     <ul class="diagram"><li>ISU Transformer Communication Alarm</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate2" readonly></li><li> <input type="text" id="tenMinutesAgoTime2" readonly></li></ul>
+				 </div>
+        </div>
+		<div class="carda bg-inverter2">
+		<div class="alarm-pill-medium" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Medium</div>  
+         <div class="diagram-alarm-details">   <h3>Inverter 2.C.2</h3>
+		     <ul class="diagram"><li>Inverter Major Underperformance</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate5" readonly></li><li> <input type="text" id="tenMinutesAgoTime5" readonly></li></ul>
+		  </div>
+        </div>
+				<div class="carda bg-inverter2">
+		<div class="alarm-pill-medium" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Medium</div>  
+         <div class="diagram-alarm-details">   <h3>Inverter 2.C.5</h3>
+		     <ul class="diagram"><li>Inverter Major Underperformance</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate6" readonly></li><li> <input type="text" id="tenMinutesAgoTime6" readonly></li></ul>
+		  </div>
+        </div>
+		<!--
+				<div class="carda bg-tracker">
+		<div class="alarm-pill-low" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Low</div>  
+         <div class="diagram-alarm-details">   <h3>Tracker</h3>
+		     <ul class="diagram"><li>Tracker Alarm</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate8" readonly></li><li> <input type="text" id="tenMinutesAgoTime8" readonly></li></ul>
+		  </div>
+        </div>
+		-->
+			<div class="carda bg-inverter3">
+		<div class="alarm-pill-low" style="display:inline-block; margin:0; float:none;"> <i class="ti ti-alert-triangle"></i>Low</div>  
+         <div class="diagram-alarm-details">   <h3>Inverter 2.B.2</h3>
+		     <ul class="diagram"><li>Inverter Fault: Aux Supply</li></ul>
+				<ul class="diagram-date"><li> <input type="text" id="tenMinutesAgoDate7" readonly></li><li> <input type="text" id="tenMinutesAgoTime7" readonly></li></ul>
+		  </div>
+        </div>
+						
+						
+      
+	 </div>
+	 </div>
+
+	
+	
+  <div class="sidebar-container" id="sidebar">
+    <div class="sidebar-header">
+ <div></div>
+ <span style="cursor: pointer;" onclick="toggleSidebar()">✕</span>
+    </div>
+   
+    <div class="sidebar-subtitle">Alarm</div>
+   <h5>Inverter Fault</h5>
+   
+<p>Inverter has reported the following fault: (Insulation impedance) </p>
+<div class="alarm-pill-high" style="display:inline-block; margin:0  0 8px 0; float:none;"> <i class="ti ti-alert-triangle"></i>High</div>
+
+
+ <div class="sidebar-subtitle">Action</div>
+<p>Evaluate active tracker and inverter faults. Check if a combiner / inverter module is off, or if something else such as a tracker or site curtailment is limiting production. Dispatch to site and open outage for capacity derate as necessary.</p>
+	<div class="row">
+	<div class="col-lg-3 sidebar-subtitle">ID</div>
+		<div class="col-lg-3 sidebar-subtitle">Raised</div>
+	</div>
+	<div class="row">
+	<div class="col-lg-3">1563386</div>
+		<div class="col-lg-3">    <input type="text" id="tenMinutesAgoDate9" readonly></div>
+		<div class="col-lg-3"> <input type="text" id="tenMinutesAgoTime9" readonly>
+		</div>
+	</div>
+	
+
+	<div class="accordion">
+  <input type="checkbox" id="section1">
+  <label for="section1">
+  View History <i class="ti ti-chevron-down"></i>
+  
+  </label>
+  <div class="content">
+  <div class="row">
+	<div class="col-lg-3 sidebar-subtitle">ID</div>
+		<div class="col-lg-3 sidebar-subtitle">Raised</div>
+				<div class="col-lg-3 sidebar-subtitle">Cleared</div>
+		<div class="col-lg-3 sidebar-subtitle">User</div>
+	</div>
+    <div class="row">
+	<div class="col-lg-3">1634567</div>
+		<div class="col-lg-3">05/17/2025 05:34 AM</div>
+				<div class="col-lg-3">05/17/2025 05:39 AM</div>
+		<div class="col-lg-3">Jerry Benson</div>
+	</div>
+    <div class="row mt-2">
+	<div class="col-lg-3">1634503</div>
+		<div class="col-lg-3">05/16/2025 08:12 AM</div>
+				<div class="col-lg-3">05/16/2025 08:18 AM</div>
+		<div class="col-lg-3">Kerry Harolds</div>
+	</div>
+    <div class="row mt-2">
+	<div class="col-lg-3">1634478</div>
+		<div class="col-lg-3">05/15/2025 12:11 AM</div>
+				<div class="col-lg-3">05/15/2025 12:56 AM</div>
+		<div class="col-lg-3">Jerry Benson</div>
+	</div>
+    <div class="row mt-2">
+	<div class="col-lg-3">1634434</div>
+		<div class="col-lg-3">05/14/2025 05:34 AM</div>
+				<div class="col-lg-3">05/14/2025 05:39 AM</div>
+		<div class="col-lg-3">Oliver Frank</div>
+	</div>
+
+  </div>
+  </div>
+<div class="sidebar-subtitle">Device</div> 
+	
+	<div class="sidebar-device" onclick="window.location='./index_device.html';" style="cursor:pointer;">
+	 <h5>Inverter 1.A.2</h5>
+	<div class="device-model"> <i class="ti ti-bolt"></i>SMA SC2600</div>
+	</div>
+  
+  <div class="field"><label>Power Factor</label><input type="text" value="1.0" readonly></div>
+<div class="field"><label>Real Power (AC)</label><input type="text" value="1,876 kW" readonly></div>
+    <div class="field"><label>DC Power</label><input type="text" value="1,922 kW" readonly></div>
+	
+    <canvas id="energyChart"></canvas>
+	
+
+	
+	
+  </div>
+  
+  
+</div></div>	
+	
+
+  
+  
+  <script src="assets/js/sidebarmenu.js"></script>
+   <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+  
+ <script>
+    function updateTimeFields() {
+      const now = new Date();
+      const tenMinAgo = new Date(now.getTime() - 10 * 60 * 1000);
+
+      const pad = n => n.toString().padStart(2, '0');
+
+      const formatDate = date => {
+        return `${pad(date.getMonth() + 1)}/${pad(date.getDate())}/${date.getFullYear()}`;
+      };
+
+      const formatTime12Hour = date => {
+        let hours = date.getHours();
+        const minutes = pad(date.getMinutes());
+        const seconds = pad(date.getSeconds());
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 becomes 12
+        return `${pad(hours)}:${minutes}:${seconds} ${ampm} PST`;
+      };
+
+      const formatDateTime = date => {
+        return `${formatDate(date)} ${formatTime12Hour(date)}`;
+      };
+
+      document.getElementById('tenMinutesAgoDate').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate2').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate3').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate4').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate5').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate6').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate7').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate8').value = formatDate(tenMinAgo);
+	  document.getElementById('tenMinutesAgoDate9').value = formatDate(tenMinAgo);
+      document.getElementById('tenMinutesAgoTime').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime2').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime3').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime4').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime5').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime6').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime7').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime8').value = formatTime12Hour(tenMinAgo);
+	  document.getElementById('tenMinutesAgoTime9').value = formatTime12Hour(tenMinAgo);
+    }
+
+    updateTimeFields();
+  </script>
+  <script>
+    const ctx = document.getElementById('energyChart').getContext('2d');
+
+    const energyChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['9 AM', '10 AM', '11 AM', '12 AM', '1 PM'],
+        datasets: [
+          {
+            label: 'Irradiance (W/m2)',
+            data: [70.12, 84.84, 106.06, 54.41, 53.44],
+			borderColor: 'rgba(255, 191, 60, 1)',
+			 fill: true,
+            yAxisID: 'y',
+          },
+          {
+            label: 'Generation (kW)',
+            data: [1303, 1316, 1826, 1203, 1654],
+            type: 'line',
+            borderColor: 'rgba(73, 164, 239, 1)',
+            yAxisID: 'y1',
+          }
+        ]
+      },
+    options: {
+  responsive: true,
+  interaction: {
+    mode: 'index',
+    intersect: false,
+  },
+  stacked: false,
+  plugins: {
+    legend: {
+      labels: {
+        color: 'white' // <-- Legend text color
+      }
+    },
+    title: {
+      display: false
+    }
+  },
+  scales: {
+    y: {
+      type: 'linear',
+      position: 'left',
+      title: {
+        display: true,
+        text: 'W/m2',
+        color: 'white' // <-- Y-axis title color
+      },
+      ticks: {
+        color: 'white' // <-- Y-axis tick labels
+      },
+      grid: {
+        color: 'rgba(255,255,255,0.1)' // optional: lighter grid lines
+      }
+    },
+    y1: {
+      type: 'linear',
+      position: 'right',
+      title: {
+        display: true,
+        text: 'kW',
+        color: 'white'
+      },
+      ticks: {
+        color: 'white'
+      },
+      grid: {
+        drawOnChartArea: false
+      }
+    },
+    x: {
+      ticks: {
+        color: 'white' // <-- X-axis tick labels
+      },
+      grid: {
+        color: 'rgba(255,255,255,0.1)'
+      }
+    }
+  }
+}
+
+    });
+  </script>
+   <script>
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function updateTime() {
+      const now = new Date();
+
+      // UTC time (HH:MM:SS)
+      const utcHours = pad(now.getUTCHours());
+      const utcMinutes = pad(now.getUTCMinutes());
+      const utcSeconds = pad(now.getUTCSeconds());
+      document.getElementById('utc-time').textContent = `${utcHours}:${utcMinutes} UTC`;
+
+      // PST time using Intl.DateTimeFormat
+      const pstFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const pstTime = pstFormatter.format(now);
+      document.getElementById('pst-time').textContent = `${pstTime} PST`;
+    }
+
+    updateTime();
+  </script>
+  
+  <script>
+    function closeSnackbar() {
+      document.getElementById("snackbar").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

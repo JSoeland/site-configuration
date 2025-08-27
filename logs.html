@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trimark | True:Control</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
+ 
+</head>
+
+<body>
+
+<div id="snackbar">
+		<div class="col-lg-1 left-right">
+			<i class="ti ti-chevron-left"></i>
+			<i class="ti ti-chevron-right"></i>
+	  </div>
+	  <div class="col-lg-9">
+			<div class="row">
+			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
+			<div class="col-lg-1">10:02 AM  </div>
+			<div class="col-lg-1"> Inverter 1.A.2</div>
+			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
+			 </div>
+	  </div>
+	  <div class="col-lg-2 snackbar-cta">
+	   <a href ="./alarms.html">Go to Alarms</a>
+	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
+	  </div>
+  </div>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+	
+	<header class="app-header" style="position:fixed;">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="site-title">
+			Hyperion
+            </li>
+			   
+          </ul>
+		 
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+               <li>
+				<div class="weather">
+										<ul>
+					<li id="pst-time"></li>
+					<li id="utc-time"></li>
+					<li>82° F Sunny <i class="ti ti-sun"></i></li>
+					</ul>
+				</div>
+				</li>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                 <div class="avatar-initial">J</div>
+                </a>
+               
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+	  
+	  
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+       <div class="notification-red">•</div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+		  
+		  <ul id="sidebarnav">
+		            	<li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-timeline-event"></i>
+                </span>
+                <span class="hide-menu">Site Status</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./site-equipment.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Site Equipment</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./points.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-hierarchy-2"></i>
+                </span>
+                <span class="hide-menu">Points</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./alarms.html" aria-expanded="false">
+			 
+                <span>
+                  <i class="ti ti-alert-triangle"></i>
+                </span>
+                <span class="hide-menu">Alarms</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./controls.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-adjustments"></i>
+                </span>
+                <span class="hide-menu">Controls</span>
+              </a>
+            </li>
+           			<!--
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./trends.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-chart-line"></i>
+                </span>
+                <span class="hide-menu">Trends</span>
+              </a>
+            </li>
+			-->
+			<li class="sidebar-item active-page">
+              <a class="sidebar-link" href="./logs.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Logs</span>
+              </a>
+            </li>
+          </ul>
+         
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+    
+      <div class="container-fluid">
+	  
+	  
+	  <div class="row mb-3">
+          <div class="col-lg-6">
+			 <h3>Logs</h3>
+            </div>
+		 
+	  </div>
+     
+	  <div class="row mb-3">
+	<ul class="tab"><li class="active">Devices</li><li>Points</li></ul>
+	</div>
+	
+    <div class="search-bar">
+      <div class="row-begin">
+	  	  <div class="search-container">
+	  <i class="ti ti-search search-icon"></i>
+      <input type="text" placeholder="Search...">
+	  </div>
+	  
+	    	<label>
+		   <div class="dd-button">Today <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+			  	<li style="background:rgba(0,0,0,0.3);">Today</li>
+			    <li>Yesterday</li>
+				<li>Last 7 Days</li>
+			  </ul>
+		   </label>
+		   <label>
+			<div>Protocol <i class="ti ti-chevron-down"></i></div>
+			  <input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+				<li>Modbus</li>
+				<li>DNP</li>
+				<li>OPC</li>
+			  </ul>
+			</label>
+	   		   <label>
+		   <div class="active dd-button">Inverter 1.A.2 <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+				<li><i class="ti ti-chevron-down"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Inverter
+				     <ul>
+					 <li> <i class="ti ti-square-check"></i>&nbsp; Inverter 1.A.1</li>
+					 <li style="background:rgba(0,0,0,0.3);"> <i class="ti ti-square-check"></i>&nbsp; Inverter 1.A.2</li>
+					 <li> <i class="ti ti-square-check"></i>&nbsp; Inverter 1.A.3</li>
+					 <li> <i class="ti ti-square-check"></i>&nbsp; Inverter 1.A.4</li>
+					 </ul>
+				</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Meter</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Meteorological</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Other</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Tracker</li>
+			  </ul>
+		   </label>
+		  <div class="clear"><i class="ti ti-xbox-x"></i> Clear</div>
+		  </div>
+		  <div class="row-end">
+			<div class="right-settings"><i class="ti ti-settings"></i> </div>
+			<div class="right-settings"><i class="ti ti-reload"></i> </div>
+		   </div>
+    </div>
+    	
+	
+
+<div class="alarms-list alarms-header">
+	<div class="row">
+		<div class="col-lg-1">Date</div>
+		<div class="col-lg-2">Time</div>
+		<div class="col-lg-1">Protocol</div>
+		<div class="col-lg-2">Device</div>
+		<div class="col-lg-5">Message</div>
+	</div>
+  </div>
+  <div class="accordion alarms-list alarms-list-hover">
+  <input type="checkbox" id="section12">
+  <label for="section12">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">RX PHYS ...> LocalDNP.DNPSlave 64 11 c4 01 00 01 00 68 ea</div>
+	</div>
+  </label>
+  <div class="content2">
+  <div class="row alarm-history">
+	<div class="col-lg-12">
+	<!--Start Log details-->
+	g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:29.275154Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 4] func: Read ... (len = 9)<br>
+2025-05-15T17:35:29.279478Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 4] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:29.279478Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 4] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C4 81 00 00<br>
+C4 81 00 00<br>
+2025-05-15T17:35:29.279510Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 6 length: 4<br>
+C6 C4 81 00 00 A3 FE<br>
+C6 C4 81 00 00 A3 FE<br>
+2025-05-15T17:35:29.279542Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 C6 C4 81 00 00 A3 FE<br>
+05 64 0A 44 00 00 02 00 12 88 C6 C4 81 00 00 A3 FE<br>
+2025-05-15T17:35:29.279561Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 6F 60<br>
+06 3C 04 06 6F 60<br>
+05 64 11 C4 02 00 00 00 67 4B C7 C5 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:30.291519Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+C7 C5 01 3C 02 06 3C 03 06 3C 04 06<br>
+C7 C5 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:30.291562Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+C5 01 3C 02 06 3C 03 06 3C 04 06<br>
+C5 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:30.291579Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 7 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:30.291591Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 5] func: Read ... (len = 9)<br>
+2025-05-15T17:35:30.291617Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 5] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:30.291617Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 5] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C5 81 00 00<br>
+C5 81 00 00<br>
+2025-05-15T17:35:30.291628Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 7 length: 4<br>
+C7 C5 81 00 00 4D 1F<br>
+C7 C5 81 00 00 4D 1F<br>
+2025-05-15T17:35:30.291637Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 C7 C5 81 00 00 4D 1F<br>
+05 64 0A 44 00 00 02 00 12 88 C7 C5 81 00 00 4D 1F<br>
+2025-05-15T17:35:30.291649Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 94 8F<br>
+06 3C 04 06 94 8F<br>
+05 64 11 C4 02 00 00 00 67 4B C8 C6 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:31.300447Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+C8 C6 01 3C 02 06 3C 03 06 3C 04 06<br>
+C8 C6 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:31.300490Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+C6 01 3C 02 06 3C 03 06 3C 04 06<br>
+C6 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:31.300505Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 8 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:31.300517Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 6] func: Read ... (len = 9)<br>
+2025-05-15T17:35:31.300566Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 6] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:31.300566Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 6] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C6 81 00 00<br>
+C6 81 00 00<br>
+2025-05-15T17:35:31.300578Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 8 length: 4<br>
+C8 C6 81 00 00 57 A9<br>
+C8 C6 81 00 00 57 A9<br>
+2025-05-15T17:35:31.300587Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 C8 C6 81 00 00 57 A9<br>
+05 64 0A 44 00 00 02 00 12 88 C8 C6 81 00 00 57 A9<br>
+2025-05-15T17:35:31.300598Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 FD 75<br>
+06 3C 04 06 FD 75<br>
+05 64 11 C4 02 00 00 00 67 4B C9 C7 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:32.316360Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+C9 C7 01 3C 02 06 3C 03 06 3C 04 06<br>
+C9 C7 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:32.316395Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 <br>destination: 2 payload: 12 bytes<br>
+C7 01 3C 02 06 3C 03 06 3C 04 06<br>
+C7 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:32.316494Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 9 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:32.316503Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 7] func: Read ... (len = 9)<br>
+2025-05-15T17:35:32.316527Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 7] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:32.316527Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 7] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C7 81 00 00<br>
+C7 81 00 00<br>
+2025-05-15T17:35:32.316534Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 9 length: 4<br>
+C9 C7 81 00 00 B9 48<br>
+C9 C7 81 00 00 B9 48<br>
+2025-05-15T17:35:32.316539Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 C9 C7 81 00 00 B9 48<br>
+05 64 0A 44 00 00 02 00 12 88 C9 C7 81 00 00 B9 48<br>
+2025-05-15T17:35:32.316547Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 77 D8<br>
+06 3C 04 06 77 D8<br>
+05 64 11 C4 02 00 00 00 67 4B CA C8 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:33.319766Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+CA C8 01 3C 02 06 3C 03 06 3C 04 06<br>
+CA C8 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:33.319792Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+C8 01 3C 02 06 3C 03 06 3C 04 06<br>
+C8 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:33.319817Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 10 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:33.319830Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 8] func: Read ... (len = 9)
+2025-05-15T17:35:33.319853Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 8] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:33.319853Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 8] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C8 81 00 00<br>
+C8 81 00 00<br>
+2025-05-15T17:35:33.319861Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 10 length: 4<br>
+CA C8 81 00 00 F6 0E<br>
+CA C8 81 00 00 F6 0E<br>
+2025-05-15T17:35:33.319867Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 CA C8 81 00 00 F6 0E<br>
+05 64 0A 44 00 00 02 00 12 88 CA C8 81 00 00 F6 0E<br>
+2025-05-15T17:35:33.319875Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 1E 22<br>
+06 3C 04 06 1E 22<br>
+05 64 11 C4 02 00 00 00 67 4B CB C9 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:34.323295Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+CB C9 01 3C 02 06 3C 03 06 3C 04 06<br>
+CB C9 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:34.323333Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+C9 01 3C 02 06 3C 03 06 3C 04 06<br>
+C9 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:34.323348Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 11 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:34.323359Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 9] func: Read ... (len = 9)<br>
+2025-05-15T17:35:34.323469Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 9] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:34.323469Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 9] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+C9 81 00 00<br>
+C9 81 00 00<br>
+2025-05-15T17:35:34.323480Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 11 length: 4<br>
+CB C9 81 00 00 18 EF<br>
+CB C9 81 00 00 18 EF<br>
+2025-05-15T17:35:34.323489Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 CB C9 81 00 00 18 EF<br>
+05 64 0A 44 00 00 02 00 12 88 CB C9 81 00 00 18 EF<br>
+2025-05-15T17:35:34.323499Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 CB 05<br>
+06 3C 04 06 CB 05<br>
+05 64 11 C4 02 00 00 00 67 4B CC CA 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:35.327365Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+CC CA 01 3C 02 06 3C 03 06 3C 04 06<br>
+CC CA 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:35.327407Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+CA 01 3C 02 06 3C 03 06 3C 04 06<br>
+CA 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:35.327428Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 12 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:35.327442Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 10] func: Read ... (len = 9)<br>
+2025-05-15T17:35:35.327476Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 10] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:35.327476Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 10] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+CA 81 00 00<br>
+CA 81 00 00<br>
+2025-05-15T17:35:35.327488Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 12 length: 4<br>
+CC CA 81 00 00 4B 0C<br>
+CC CA 81 00 00 4B 0C<br>
+2025-05-15T17:35:35.327497Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 CC CA 81 00 00 4B 0C<br>
+05 64 0A 44 00 00 02 00 12 88 CC CA 81 00 00 4B 0C<br>
+2025-05-15T17:35:35.327507Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 A2 FF<br>
+06 3C 04 06 A2 FF<br>
+05 64 11 C4 02 00 00 00 67 4B CD CB 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:36.332070Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+CD CB 01 3C 02 06 3C 03 06 3C 04 06<br>
+CD CB 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:36.332103Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+CB 01 3C 02 06 3C 03 06 3C 04 06<br>
+CB 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:36.332115Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 13 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:36.332123Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 11] func: Read ... (len = 9)<br>
+2025-05-15T17:35:36.332163Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 11] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:36.332163Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 11] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+CB 81 00 00<br>
+CB 81 00 00<br>
+2025-05-15T17:35:36.332172Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 13 length: 4<br>
+CD CB 81 00 00 A5 ED<br>
+CD CB 81 00 00 A5 ED<br>
+2025-05-15T17:35:36.332196Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 CD CB 81 00 00 A5 ED<br>
+05 64 0A 44 00 00 02 00 12 88 CD CB 81 00 00 A5 ED<br>
+2025-05-15T17:35:36.332203Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+06 3C 04 06 58 E6<br>
+06 3C 04 06 58 E6<br>
+05 64 11 C4 02 00 00 00 67 4B CE CC 01 3C 02 06 3C 03<br>
+2025-05-15T17:35:37.338466Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS RX - 24 bytes<br>
+CE CC 01 3C 02 06 3C 03 06 3C 04 06<br>
+CE CC 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:37.338504Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK RX - ControlField { func: PriUnconfirmedUserData, master: true, fcb: false, fcv: false } source: 0 destination: 2 payload: 12 bytes<br>
+CC 01 3C 02 06 3C 03 06 3C 04 06<br>
+CC 01 3C 02 06 3C 03 06 3C 04 06<br>
+2025-05-15T17:35:37.338513Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT RX - FIN: true FIR: true SEQ: 14 length: 11<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v4 : Class Data - Class 3 - all objects<br>
+g60v3 : Class Data - Class 2 - all objects<br>
+g60v2 : Class Data - Class 1 - all objects<br>
+2025-05-15T17:35:37.338520Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP RX - ctrl: [fir: true fin: true con: false uns: false seq: 12] func: Read ... (len = 9)<br>
+2025-05-15T17:35:37.338544Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 12] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+2025-05-15T17:35:37.338544Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: APP TX - ctrl: [fir: true fin: true con: false uns: false seq: 12] func: Response iin1: [] iin2: [] ... (len = 0)<br>
+CC 81 00 00<br>
+CC 81 00 00<br>
+2025-05-15T17:35:37.338548Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: TRANSPORT TX - FIN: true FIR: true SEQ: 14 length: 4<br>
+CE CC 81 00 00 C5 5E<br>
+CE CC 81 00 00 C5 5E<br>
+2025-05-15T17:35:37.338553Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: LINK TX - ControlField { func: PriUnconfirmedUserData, master: false, fcb: false, fcv: false } source: 2 destination: 0 payload: 7 bytes<br>
+05 64 0A 44 00 00 02 00 12 88 CE CC 81 00 00 C5 5E<br>
+2025-05-15T17:35:37.338557Z  INFO dnp3-outstation-tcp{listen=0.0.0.0:28084 addr=2}:session{id=0}: PHYS TX - 17 bytes<br>
+DNP Server protocol logging timer elapsed
+	<!--End Log details-->
+	</div>
+		
+	</div>
+    
+	    
+  </div>
+  </div>
+  
+ <div class="alarms-list">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">RX TPRT                         c7 c6 01 3c 02 06 3c 03 06 3c 04 06</div>
+	</div>
+  </div> 
+<div class="alarms-list">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">USER <+++ LocalDNP.DNPSlave Build DNP3 Message: Read Response</div>
+	</div>
+  </div>    
+  <div class="alarms-list">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">RX STATIC_HDRS Rx Object 60(Class Data), variation 3, qualifier 0x06(All Points)</div>
+	</div>
+  </div> 
+<div class="alarms-list">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">EVENT_HDRS Tx Object 32(Analog Change Event), variation 2, qualifier 0x17(8 Bit Index)</div>
+	</div>
+  </div>
+<div class="alarms-list">
+	<div class="row">
+		<div class="col-lg-1">4/15/25</div>
+		<div class="col-lg-2">11:45:45 AM</div>
+		<div class="col-lg-1">DNP</div>
+		<div class="col-lg-2 link" onclick="window.location='./index_device.html';" style="cursor:pointer;">Inverter 1.A.2<br><small>SMA SC 2600</small></div>
+		<div class="col-lg-5">EVENT_DATA Analog Input 000000 = 80, flags 0x01</div>
+	</div>
+  </div>   
+   
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/sidebarmenu.js"></script>
+
+
+<script>
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function updateTime() {
+      const now = new Date();
+
+      // UTC time (HH:MM:SS)
+      const utcHours = pad(now.getUTCHours());
+      const utcMinutes = pad(now.getUTCMinutes());
+      const utcSeconds = pad(now.getUTCSeconds());
+      document.getElementById('utc-time').textContent = `${utcHours}:${utcMinutes} UTC`;
+
+      // PST time using Intl.DateTimeFormat
+      const pstFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const pstTime = pstFormatter.format(now);
+      document.getElementById('pst-time').textContent = `${pstTime} PST`;
+    }
+
+    updateTime();
+  </script>
+  
+  <script>
+    function closeSnackbar() {
+      document.getElementById("snackbar").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

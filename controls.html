@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trimark | True:Control</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="assets/css/styles.min.css" />
+  <link rel="stylesheet" href="assets/css/accordion.css" />
+</head>
+
+<body style="overflow-x: hidden;">
+<div id="snackbar">
+		<div class="col-lg-1 left-right">
+			<i class="ti ti-chevron-left"></i>
+			<i class="ti ti-chevron-right"></i>
+	  </div>
+	  <div class="col-lg-9">
+			<div class="row">
+			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
+			<div class="col-lg-1">10:02 AM  </div>
+			<div class="col-lg-1"> Inverter 1.A.2</div>
+			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
+			 </div>
+	  </div>
+	  <div class="col-lg-2 snackbar-cta">
+	   <a href ="./alarms.html">Go to Alarms</a>
+	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
+	  </div>
+  </div>
+
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+
+	<header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="site-title">
+			 Hyperion
+            </li>
+			   
+          </ul>
+		 
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+               <li>
+				<div class="weather">
+					<ul>
+					<li id="pst-time"></li>
+					<li id="utc-time"></li>
+					<li>82° F Sunny <i class="ti ti-sun"></i></li>
+					</ul>
+				</div>
+				</li>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                 <div class="avatar-initial">J</div>
+                </a>
+               
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+	  
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+       <div class="notification-red">•</div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+		  
+		  <ul id="sidebarnav">
+		   <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-timeline-event"></i>
+                </span>
+                <span class="hide-menu">Site Status</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./site-equipment.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Site Equipment</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./points.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-hierarchy-2"></i>
+                </span>
+                <span class="hide-menu">Points</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./alarms.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-triangle"></i>
+                </span>
+                <span class="hide-menu">Alarms</span>
+              </a>
+            </li>
+            <li class="sidebar-item active-page">
+              <a class="sidebar-link" href="./controls.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-adjustments"></i>
+                </span>
+                <span class="hide-menu">Controls</span>
+              </a>
+            </li>
+           			<!--
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./trends.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-chart-line"></i>
+                </span>
+                <span class="hide-menu">Trends</span>
+              </a>
+            </li>
+			-->
+			<li class="sidebar-item">
+              <a class="sidebar-link" href="./logs.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list"></i>
+                </span>
+                <span class="hide-menu">Logs</span>
+              </a>
+            </li>
+          </ul>
+         
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+	
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      
+       <div class="container-fluid">
+	   
+	   <div class="row mb-3">
+          <div class="col-lg-6">
+			 <h3>Controls</h3>
+            </div>
+	  </div>
+	 
+ <div class="row mb-3">
+	<ul class="tab"><li class="active">Control Requests</li><li>Request Log</li></ul>
+	</div>
+	
+    <div class="search-bar">
+      <div class="row-begin">
+	  	  <div class="search-container">
+	  <i class="ti ti-search search-icon"></i>
+      <input type="text" placeholder="Search...">
+	  </div>
+	  	  <label>
+		   <div class="dd-button">Site Controls <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+			  	<li style="background:rgba(0,0,0,0.3);">Site Controls</li>
+			    <li>Device Controls</li>
+			  </ul>
+		   </label>
+	  
+		  </div>
+		  <div class="row-end align-items-center">
+		 <small>3:30:00 PM</small>
+		  
+		  <div class="right-settings"><i class="ti ti-edit"></i> </div>
+			
+			<div class="right-settings"><i class="ti ti-reload"></i> </div>
+		   </div>
+    </div>
+	
+		<div class="row">
+         
+		
+		  <div class="col-lg-4">
+		  <div class="pill active">All</div><div class="pill inactive">Power</div><div class="pill inactive">BESS</div><div class="pill inactive">Inverter</div><div class="pill inactive">Substation</div><div class="pill inactive">Voltage</div>
+		 <!-- <label>
+				<div class="controls-dropdown dd-button">All <i class="ti ti-chevron-down"></i></div>
+				<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+			    <li style="background-color:#131313;">All</li>
+			  	<li>Power Regulation</li>
+			    <li>BESS</li>
+				<li>Inverter</li>
+				<li>Substation</li>
+				<li>Voltage Regulation</li>
+			  </ul>
+			</label>
+			-->
+                  <div class="card trend">
+                    <div class="card-body">
+					
+					        	 <div class="row-legend align-items-center control-header" onclick="toggleControl(this)">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Set Site wMax</strong><br><small>Curtails the site by setting the maximum power of all inverters to meet the overall site Maximum Power value.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+									<div class="legend-data-detail"><small>11 MW</small></div>
+								</div>
+							</div>
+							<div class="control-content">
+									<div class="field-container">
+									  <input type="text" placeholder="20 kW">
+									  </div>
+							<label class="radio-container"><span class="custom-radio"></span><input type="radio" checked="unchecked" name="radio">Immediate</label>
+							<label class="radio-container"><span class="custom-radio"><input type="radio" checked="checked" name="radio">Delayed</label>
+								<div class="field-container">
+								  <input type="text" placeholder="04/16/25 10:25 AM">
+								  </div>
+								  <div class="button">Submit</div>
+							</div>
+							
+						    <div class="row-legend align-items-center">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Closed Loop Real Power Mode</strong><br><small>Description here.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+								    <div class="control-list-status"><span class="greendot">•</span>On</div>
+								</div>
+							</div>
+						    <div class="row-legend align-items-center">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Closed Loop Power Factor Mode</strong><br><small>Description here.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+								    <div class="control-list-status"><span class="greendot">•</span>On</div>
+								</div>
+							</div>
+							<div class="row-legend align-items-center">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Closed Loop reactive Power Mode</strong><br><small>Description here.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+								    <div class="control-list-status-off"><span class="graydot">•</span>OFF</div>
+								</div>
+							</div>
+							 <div class="row-legend align-items-center">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Reset Site wLimit</strong><br><small>Releases any currently imposed Site wLimit curtailment.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+								   
+								</div>
+							</div>
+							
+							<div class="row-legend align-items-center">
+								<div class="col-lg-9">
+									<div class="legend-data">
+									<strong>Set Site wLimit</strong><br><small>Curtails the site by setting a point that restricts the 
+maximum power output of the site.</small>
+									</div>
+							    </div>
+								<div class="col-lg-3">
+								    <div class="control-list-status"><span class="greendot">•</span>Active</div>
+									<div class="legend-data-detail"><small>11 MW</small></div>
+								</div>
+							</div>
+                    </div>
+					
+                  </div>
+           </div>
+		   
+			 <div class="col-lg-8">
+		  
+		  
+		  <div class="accordion">
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      System Feedback
+      <span>59.98 Hz &nbsp; <span style="color:#66ff99;">5.63 MW</span> <i class="ti ti-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content open">
+      <div class="card-grid">
+        <div class="carda">
+          <h3><span class="greendot">•</span>POI Meter</h3>
+		  <ul><li>Power</li><li class="emphasis">199.9</li><li>MW</li></ul>
+          <ul><li>Reactive Power</li><li>0</li><li>MVAR</li></ul>
+		  <ul><li>Voltage</li><li>355.9</li><li>KV</li></ul>
+          <ul><li>Power Factor</li><li>0.9</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>PV Meter</h3>
+		  <ul><li>Power</li><li class="emphasis">202.3</li><li>MW</li></ul>
+          <ul><li>Reactive Power</li><li>-17.36</li><li>MVAR</li></ul>
+		  <ul><li>Voltage</li><li>355.9</li><li>KV</li></ul>
+          <ul><li>Power Factor</li><li>1.0<li>PF</li></ul>
+        </div>
+        <div class="carda">
+          <h3><span class="greendot">•</span>BESS Meter</h3>
+		  <ul><li>Power</li><li class="emphasis">0</li><li>MW</li></ul>
+          <ul><li>Reactive Power</li><li>-0.32</li><li>MVAR</li></ul>
+		  <ul><li>Voltage</li><li>355.9</li><li>KV</li></ul>
+          <ul><li>Power Factor</li><li>-0.9</li><li>PF</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      BESS
+      <span>0 MW &nbsp; <span style="color:#66ff99;">24/24 online</span> <i class="ti ti-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content">
+      <p style="color:#fff;">Coming soon...</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <div>Inverters <div class="pill">Curtailment Active</div></div>
+      <span>5.62 MW &nbsp; <span style="color:#FFBF3C;">23/24 online</span> <i class="ti ti-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content open">
+	   		   <label>
+		   <div class="accordion-filter dd-button">All Inverters <i class="ti ti-chevron-down"></i></div>
+			<input type="checkbox" class="dd-input" id="test">
+			  <ul class="dd-menu">
+			  <li>Start Typing...</li>
+				<li><i class="ti ti-chevron-down"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Feeder 1
+				     <ul><li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.1</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.2</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.3</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.4</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.5</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.6</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.7</li>
+					 <li> <i class="ti ti-square"></i>&nbsp; Inverter 1.A.8</li>
+					 
+					 </ul>
+				</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Feeder 2</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Feeder 3</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Feeder 4</li>
+				<li><i class="ti ti-chevron-right"></i>&nbsp; <i class="ti ti-square"></i>&nbsp; Feeder 5</li>
+			  </ul>
+		   </label>
+      <div class="card-grid-inverter">
+        <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.1</h3>
+		   <ul><li>Power</li><li class="emphasis">3,201</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+         <div class="carda">
+          <h3 onclick="window.location='./index_device.html';" style="cursor:pointer;"><span class="greendot">•</span>INVERTER 1.A.2</h3>
+		   <ul><li>Power</li><li class="emphasis">1,876</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.3</h3>
+		   <ul><li>Power</li><li class="emphasis">3,258</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.4</h3>
+		   <ul><li>Power</li><li class="emphasis">2,848</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.5</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.6</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.7</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 1.A.8</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.1</h3>
+		   <ul><li>Power</li><li class="emphasis">3,201</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+         <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.2</h3>
+		   <ul><li>Power</li><li class="emphasis">2,876</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.3</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.4</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.5</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.6</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.7</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.B.8</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.1</h3>
+		   <ul><li>Power</li><li class="emphasis">3,201</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+         <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.2</h3>
+		   <ul><li>Power</li><li class="emphasis">1,876</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.3</h3>
+		   <ul><li>Power</li><li class="emphasis">3,258</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.4</h3>
+		   <ul><li>Power</li><li class="emphasis">2,848</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.5</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		 <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.6</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		  <div class="carda">
+          <h3><span class="greendot">•</span>INVERTER 2.C.7</h3>
+		   <ul><li>Power</li><li class="emphasis">3,041</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>43</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>1.00</li><li>PF</li></ul>
+        </div>
+		<div class="carda">
+          <h3><span class="graydot">•</span>INVERTER 2.C.8</h3>
+		   <ul><li>Power</li><li class="emphasis">0</li><li>kW</li></ul>
+		     <ul><li>Reactive Power</li><li>0.00</li><li>kVAR</li></ul>
+			   <ul><li>Capacity</li><li>0</li><li>%</li></ul>
+			     <ul><li>Performance Factor</li><li>0</li><li>PF</li></ul>
+        </div>
+        <!-- Repeat more inverter cards as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		  </div>	
+				
+        </div>
+		
+      </div>
+    </div>
+  </div>
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/sidebarmenu.js"></script>
+  <script src="assets/js/app.min.js"></script>
+  <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script>
+function toggleAccordion(header) {
+  const content = header.nextElementSibling;
+  content.classList.toggle('open');
+}
+</script>
+<script>
+function toggleControl(header) {
+  const content = header.nextElementSibling;
+  content.classList.toggle('open');
+}
+</script>
+   <script>
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function updateTime() {
+      const now = new Date();
+
+      // UTC time (HH:MM:SS)
+      const utcHours = pad(now.getUTCHours());
+      const utcMinutes = pad(now.getUTCMinutes());
+      const utcSeconds = pad(now.getUTCSeconds());
+      document.getElementById('utc-time').textContent = `${utcHours}:${utcMinutes} UTC`;
+
+      // PST time using Intl.DateTimeFormat
+      const pstFormatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const pstTime = pstFormatter.format(now);
+      document.getElementById('pst-time').textContent = `${pstTime} PST`;
+    }
+
+    updateTime();
+  </script>
+
+<script>
+    function closeSnackbar() {
+      document.getElementById("snackbar").style.display = "none";
+    }
+  </script>
+  
+</body>
+
+</html>

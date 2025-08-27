@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Site Configuration</title>
+
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+ <link rel="stylesheet" href="assets/css/config.css" />
+   <link rel="stylesheet" href="assets/css/sidebar.css" />
+
+
+</head>
+<body>
+  <div class="main-container">
+    <!-- Sidebar 1 -->
+    <div class="sidebar-1">
+      <div>
+	  <div class="tooltip-container">
+	    <div class="nav-item-main"><i class="ti ti-menu-2"></i></div>
+			<div class="tooltip-text">Expand</div>
+		</div>
+       <div class="tooltip-container">
+			<div class="nav-item-main"><i class="ti ti-bolt"></i></div>
+			<div class="tooltip-text">Trimark Library</div>
+		</div>
+        <div class="tooltip-container">
+		<div class="nav-item-main"><i class="ti ti-map-pin selected"></i></div>
+			<div class="tooltip-text">Site Configurations</div>
+		</div>
+      </div>
+	   <div class="tooltip-container">
+      <i class="ti ti-plus"></i>
+	  			<div class="tooltip-text">Create Configuration</div>
+	  </div>
+    </div>
+
+    <!-- Sidebar 2 -->
+    <div class="sidebar-2">
+      <div class="header">Hyperion</div>
+
+      <div class="search">
+         <div class="left">
+         <i class="ti ti-search"></i>
+       </div>
+		<div class="right">
+			 
+<div id="dropdown1" class="customDropdown">
+  <div class="selected plus"><i class="ti ti-plus"></i></div>
+  <div class="options">
+    <div class="option"><i class="ti ti-folder"></i> New Folder</div>
+	<div class="option">Devices</div>
+    <div class="optionT"  onclick="toggleSidebar()" style="cursor:pointer;"><i class="ti ti-bolt"></i> Trimark Library</div>
+    <div class="option"><i class="ti ti-circle-dotted"></i> Build New Device</div>
+	 <div class="option"><i class="ti ti-line-dashed"></i> DNP</div>
+	  <div class="option"><i class="ti ti-line-dashed"></i> Modbus</div>
+	   <div class="option"><i class="ti ti-line-dashed"></i> OPC</div>
+  </div>
+</div>
+		</div>
+      </div>
+
+      <div class="nav-item"><i class="ti ti-table-options"></i>Site Settings</div>
+<div class="active-section">
+  <div class="nav-item selected-item" onclick="window.location='./__Site_configuration.html';" style="cursor:pointer">
+    <i class="ti ti-layout"></i>Site Equipment
+  </div>
+
+  <div class="nav-item">
+    <div class="nested-row">
+      
+	   <span id="toggleModels" class="active" onclick="showSubmenu('models-submenu')" style="cursor:pointer;">
+	  <i class="ti ti-list"></i>Tree
+	  </span>
+
+      <!-- "Models" is now clickable -->
+      <span id="toggleModels2" onclick="showSubmenu('models-submenu2')" style="cursor:pointer;">
+        <i class="ti ti-bolt"></i>Models
+      </span>
+    </div>
+
+<div id="models-submenu" style="display:block;">
+<div class="nav-item"><i class="ti ti-chevron-down"></i><i class="ti ti-folder"></i>Substation</div>
+  <div class="nav-item device pointer indent" onclick="window.location='./__Site_configuration-RTAC.html';"><img src="assets/images/RTAC.svg">RTAC</div>
+  <div class="nav-item device indent"><img src="assets/images/meter.svg">Meter</div>
+  <div class="nav-item"><i class="ti ti-chevron-right"></i><i class="ti ti-folder"></i>Inverters</div>
+ </div>
+	<!-- Hidden list of nav-items under Models -->
+    <div id="models-submenu2" style="display:none;">
+      <div class="nav-item device"><img src="assets/images/meter.svg">SEL-735 <span>1</span></div>
+      <div class="nav-item device"><img src="assets/images/RTAC.svg">SEL-3555 <span>1</span></div>
+      <div class="nav-item device"><img src="assets/images/inverter.svg">SMA 2600 <span>5</span></div>
+    </div>
+  </div>
+
+</div>
+	  <div class="nav-item"><i class="ti ti-trash"></i>Trash</div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div id="dropdown2" class="customDropdown pointer">
+			<div class="selected">
+			Version / <span class="highlight">Draft</span><i class="ti ti-chevron-down"></i>
+			</div>
+		  <div class="options middle">
+			<div class="option"><i class="ti ti-history"></i>Show Version History</div>
+			<div class="option"><i class="ti ti-trash"></i>Delete Draft</div>
+			<div class="option"><i class="ti ti-file"></i>Save as New Draft</div>
+			<div class="option"><i class="ti ti-upload"></i>Publish</div>
+		  </div>
+		</div>
+      </div>
+<div class="profile pointer" onclick="window.location='./substation.html';">
+                 <div class="avatar-initial">J</div>
+			  </div>
+      <!-- Header -->
+      <div class="content-header2">Site Equipment
+	  
+	  <div class="list-grid">
+	  <i class="ti ti-grid-dots active"></i>
+	  <i class="ti ti-list inactive"></i>
+	   <i class="ti ti-bolt" onclick="toggleSidebar()" style="cursor:pointer;"></i>
+	  </div>
+	  </div>
+
+      
+
+      <!-- Tile Grid -->
+      <div class="tile-grid">
+        <div class="tile">
+          <div class="tile-title">Substation</div>
+          <div class="tile-icon"><img src="assets/images/substation.svg" width="24px"></div>
+          <div class="double-pill"><div class="tile-pill pointer" onclick="window.location='./__Site_configuration-RTAC.html';"><span>1</span>RTAC</div><div class="tile-pill"><span>1</span>Meter</div></div>
+        </div>
+        <div class="tile">
+          <div class="tile-title">Inverters</div>
+          <div class="tile-icon"><img src="assets/images/inverter-lb.svg" width="24px"></div>
+          <div class="tile-pill"><span>5</span>SMA 2600</div>
+        </div>
+       
+
+      </div>
+    </div>
+	
+	 <div class="sidebar-container" id="sidebar" style="background-color:#414141;">
+    <div class="sidebar-header">
+      <h2>Trimark Library </h2>
+      <span style="cursor: pointer;" onclick="toggleSidebar()">✕</span>
+    </div>
+   
+    <div class="tl-filter"><i class="ti ti-search"></i></div>
+	
+	<div id="dropdown3" class="customDropdown pointer tl-filter2">
+			<div class="selected">
+			Automation Controller<i class="ti ti-chevron-down"></i>
+			</div>
+		  <div class="options">
+			<div class="option selected-wide">Automation Controller</div>
+			<div class="option">BESS</div>
+			<div class="option">Breaker</div>
+			<div class="option">Capacitor Bank</div>
+			<div class="option">Charge Regulator</div>
+			<div class="option">Data Concentrator</div>
+			<div class="option">DC-DC Converter</div>
+			<div class="option">Inverter</div>
+			<div class="option">Meteorological</div>
+			<div class="option">Meter</div>
+			<div class="option">Network Devices</div>
+			<div class="option">Tracker Controller</div>
+			<div class="option">Transformer</div>
+			<div class="option">UPS</div>
+
+		  </div>
+		</div>
+		
+	<div id="dropdown3" class="customDropdown pointer tl-filter2">
+			<div class="selected">
+			All Manufacturers<i class="ti ti-chevron-down"></i>
+			</div>
+		  <div class="options">
+			<div class="option selected-wide">All Manufacturers</div>
+			<div class="option">Novatech</div>
+			<div class="option">SEL</div>
+		  </div>
+		</div>
+		
+    <hr>
+   
+	<div class="chip-list">
+  <div class="chip-container">
+    <div class="chip">
+      <span class="manufacturer">Novatech</span>
+      <span class="model">OrionLX</span>
+    </div>
+    <div class="expandable-content">
+      <div class="dropdown">
+        <label for="version1">Version</label>
+        <select id="version1">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+          <option value="v3">v3</option>
+        </select>
+      </div>
+      <div class="number-selector">
+        <label for="quantity1">Quantity</label>
+        <input type="number" id="quantity1" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+  <div class="chip-container">
+    <div class="chip">
+      <span class="manufacturer">Novatech</span>
+      <span class="model">OrionMX</span>
+    </div>
+    <div class="expandable-content">
+      <div class="dropdown">
+        <label for="version1">Version</label>
+        <select id="version1">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+          <option value="v3">v3</option>
+        </select>
+      </div>
+      <div class="number-selector">
+        <label for="quantity1">Quantity</label>
+        <input type="number" id="quantity1" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+  <div class="chip-container">
+    <div class="chip">
+      <span class="manufacturer">SEL</span>
+      <span class="model">SEL-3505</span>
+    </div>
+    <div class="expandable-content">
+      <div class="dropdown">
+        <label for="version2">Version</label>
+        <select id="version2">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+        </select>
+      </div>
+      <div class="number-selector">
+        <label for="quantity2">Quantity</label>
+        <input type="number" id="quantity2" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+  <div class="chip-container">
+    <div class="chip">
+      <span class="manufacturer">SEL</span>
+      <span class="model">SEL-3555</span>
+    </div>
+    <div class="expandable-content">
+      <div class="dropdown">
+        <label for="version2">Version</label>
+        <select id="version2">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+        </select>
+      </div>
+      <div class="number-selector">
+        <label for="quantity2">Quantity</label>
+        <input type="number" id="quantity2" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+  <div class="chip-container">
+    <div class="chip">
+      <span class="manufacturer">SEL</span>
+      <span class="model">SEL-3560E</span>
+    </div>
+    <div class="expandable-content">
+      <div class="dropdown">
+        <label for="version2">Version</label>
+        <select id="version2">
+          <option value="v1">v1</option>
+          <option value="v2">v2</option>
+        </select>
+      </div>
+      <div class="number-selector">
+        <label for="quantity2">Quantity</label>
+        <input type="number" id="quantity2" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="tl-button">Add</div>	
+  </div>
+	
+	
+  </div>
+  
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all dropdowns with IDs that start with "dropdown"
+    const dropdowns = Array.from(document.querySelectorAll('[id^="dropdown"]'));
+
+    function closeAllDropdowns() {
+      dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
+    }
+
+    dropdowns.forEach(dropdown => {
+      const selected = dropdown.querySelector('.selected');
+      const options = dropdown.querySelectorAll('.option');
+
+      selected.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAllDropdowns();
+        dropdown.classList.toggle('open');
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+		if (this.classList.contains('no-select')) return;
+          selected.textContent = option.textContent;
+          dropdown.classList.remove('open');
+        });
+      });
+    });
+
+    document.addEventListener('click', () => {
+      closeAllDropdowns();
+    });
+  });
+</script>
+
+<script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+  
+<script>
+  // Get all chips
+  const chips = document.querySelectorAll('.chip');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', function (event) {
+      event.stopPropagation(); // prevent bubbling
+      const currentContainer = this.closest('.chip-container');
+
+      // Collapse all others
+      document.querySelectorAll('.chip-container').forEach(container => {
+        if (container !== currentContainer) {
+          container.querySelector('.expandable-content').classList.remove('show');
+          container.querySelector('.chip').classList.remove('active');
+        }
+      });
+
+      // Toggle this one
+      const content = currentContainer.querySelector('.expandable-content');
+      const isOpen = content.classList.contains('show');
+
+      if (isOpen) {
+        content.classList.remove('show');
+        this.classList.remove('active');
+      } else {
+        content.classList.add('show');
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Prevent clicks inside the dropdown/input from bubbling to the chip
+  document.querySelectorAll('.expandable-content').forEach(content => {
+    content.addEventListener('click', e => e.stopPropagation());
+  });
+</script>
+
+<script>
+  function showSubmenu(menuToShowId) {
+    const submenus = ['models-submenu', 'models-submenu2'];
+
+    submenus.forEach(id => {
+      document.getElementById(id).style.display = (id === menuToShowId) ? 'block' : 'none';
+    });
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const spans = document.querySelectorAll(".nested-row span");
+
+    spans.forEach(span => {
+      span.addEventListener("click", () => {
+        // Remove 'active' from all spans
+        spans.forEach(s => s.classList.remove("active"));
+        // Add 'active' to the clicked one
+        span.classList.add("active");
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
