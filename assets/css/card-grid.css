@@ -1,0 +1,67 @@
+  .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #323232;
+	  background-image: url("../images/charts/inverter.svg");
+	  background-repeat:no-repeat;
+      padding: 30px 20px 20px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+	  color:#fff;
+	  background-position-x: 90%;
+	  background-position-y: 50%;
+	  min-height:160px;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+	   background-image: url("../images/charts/inverter.svg");
+	  background-repeat:no-repeat;
+	  background-position-x: 90%;
+	  background-position-y: 50%;
+    }
+
+    .info-card {
+      background: #585757;
+      border-left: 4px solid #FC8F2B;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      grid-column: 1 / -1;
+      display: none;
+	  color:#fff;
+    }
+    .info-card.active {
+      display: block;
+	  margin-top:-30px;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+	.card.active {
+  background:#585757;
+   background-image: url("../images/charts/inverter.svg");
+	  background-repeat:no-repeat;
+	  background-position-x: 90%;
+	  background-position-y: 50%;
+}
+.card img {
+	float:right;
+}
+.card h2 {
+	font-size:1.2rem;
+	padding-top:8px;
+}
+
+.card-alarm-pill {border-radius:6px; padding:2px 8px 1px 8px; border:1px solid #FC8F2B; background:#512701; color:#fff; width:fit-content; font-size:0.8rem;}
+.card-alarm-pill i {color:#FC8F2B; margin-right:4px;}
