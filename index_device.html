@@ -90,20 +90,23 @@ height:480px !important;
 			<li class="sidebar-item indent no-link">
                 <span class="hide-menu">Substation</span>
             </li>
+			<!--
 			<li class="sidebar-item indent no-link">
                 <span class="hide-menu">Met Data</span>
             </li>
 			<li class="sidebar-item indent no-link">
                 <span class="hide-menu">Network</span>
             </li>
+			-->
 			<li class="sidebar-item indent">
               <a class="sidebar-link" href="./inverters.html" aria-expanded="false">
                 <span class="hide-menu">Inverters</span>
               </a>
             </li>
+			<!--
 			<li class="sidebar-item indent no-link">
                 <span class="hide-menu">Trackers</span>
-            </li>
+            </li>-->
             <li class="sidebar-item">
               <a class="sidebar-link" href="./points.html" aria-expanded="false">
                 <span>
@@ -509,91 +512,112 @@ function toggleControl(header) {
 
 
  <script>
-    const ctx = document.getElementById('energyChart').getContext('2d');
+  const ctx = document.getElementById('energyChart').getContext('2d');
 
-    const energyChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['9 AM', '10 AM', '11 AM', '12 AM', '1 PM'],
-        datasets: [
-          {
-            label: 'Irradiance (W/m2)',
-            data: [70.12, 84.84, 106.06, 54.41, 53.44],
-			borderColor: 'rgba(255, 191, 60, 1)',
-			backgroundColor: 'rgba(0, 0, 0, 1)',
-            yAxisID: 'y',
-          },
-          {
-            label: 'Generation (kW)',
-            data: [1303, 1316, 1826, 1203, 1654],
-            type: 'line',
-            borderColor: 'rgba(73, 164, 239, 1)',
-			backgroundColor: 'rgba(0, 0, 0, 1)',
-            yAxisID: 'y1',
-          }
-        ]
-      },
+  const labels = [
+    '6:00AM', '6:30AM', '7:00AM', '7:30AM', '8:00AM', '8:30AM', '9:00AM', '9:30AM',
+    '10:00AM', '10:30AM', '11:00AM', '11:30AM', '12:00PM', '12:30PM', '1:00PM',
+    '1:30PM', '2:00PM', '2:30PM', '3:00PM', '3:30PM', '4:00PM', '4:30PM', '5:00PM', '5:30PM', '6:00PM'
+  ];
+
+  const generationData = [
+    0, 50, 150, 300, 500, 700, 900, 1200, 1450, 1600, 1750, 1850, 1900, 1920, 1950,
+    1930, 1900
+  ];
+
+  const irradianceData = [
+    0, 30, 50, 100, 150, 190, 242, 335, 380, 430, 460, 475, 490, 498, 495,
+    490, 480
+  ];
+
+  const energyChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Generation (kW)',
+          data: generationData,
+          borderColor: 'rgba(73, 164, 239, 1)',
+          backgroundColor: 'rgba(73, 164, 239, 0.3)',     // fill color (blue, semi-transparent)
+		fill: true, 
+          yAxisID: 'y',
+        },
+        {
+          label: 'Irradiance (W/m²)',
+          data: irradianceData,
+          type: 'line',
+          borderColor: 'rgba(255, 191, 60, 1)',
+          backgroundColor: 'rgba(0, 0, 0, 1)',
+          yAxisID: 'y1',
+        }
+      ]
+    },
     options: {
-  responsive: true,
-  interaction: {
-    mode: 'index',
-    intersect: false,
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        },
+        title: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          type: 'linear',
+          position: 'left',
+          title: {
+            display: true,
+            text: 'Generation (kW)',
+            color: 'white'
+          },
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.1)'
+          }
+        },
+        y1: {
+          type: 'linear',
+          position: 'right',
+          title: {
+            display: true,
+            text: 'Irradiance (W/m²)',
+            color: 'white'
+          },
+          ticks: {
+            color: 'white'
+          },
+          grid: {
+            drawOnChartArea: false
+          }
+        },
+        x: {
+  ticks: {
+    color: 'white',
+    callback: function(value, index) {
+      return index % 2 === 0 ? this.getLabelForValue(value) : '';
+    },
+    maxRotation: 0,
+    minRotation: 0
   },
-  stacked: false,
-  plugins: {
-    legend: {
-      labels: {
-        color: 'white' // <-- Legend text color
-      }
-    },
-    title: {
-      display: false
-    }
-  },
-  scales: {
-    y: {
-      type: 'linear',
-      position: 'left',
-      title: {
-        display: true,
-        text: 'W/m2',
-        color: 'white' // <-- Y-axis title color
-      },
-      ticks: {
-        color: 'white' // <-- Y-axis tick labels
-      },
-      grid: {
-        color: 'rgba(255,255,255,0.1)' // optional: lighter grid lines
-      }
-    },
-    y1: {
-      type: 'linear',
-      position: 'right',
-      title: {
-        display: true,
-        text: 'kW',
-        color: 'white'
-      },
-      ticks: {
-        color: 'white'
-      },
-      grid: {
-        drawOnChartArea: false
-      }
-    },
-    x: {
-      ticks: {
-        color: 'white' // <-- X-axis tick labels
-      },
-      grid: {
-        color: 'rgba(255,255,255,0.1)'
-      }
-    }
+  grid: {
+    color: 'rgba(255,255,255,0.1)'
   }
 }
-
-    });
-  </script>
+      }
+    }
+  });
+</script>
   <script>
     function updateTimeFields() {
       const now = new Date();
