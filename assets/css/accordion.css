@@ -136,6 +136,14 @@ header {
 		border-radius:6px;
 	}
 	
+	.bg-emphasis .carda ul:nth-child(3), .bg-emphasis .carda ul:nth-child(5) {
+		background:rgba(0,0,0,0.2);
+		border-radius:6px;
+	}
+	.bg-emphasis .carda ul li{
+		padding-left:8px !important;
+	}
+	
 	.pill {
 		border-radius:10px;
 		display:inline-block;

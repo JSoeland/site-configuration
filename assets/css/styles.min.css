@@ -1410,7 +1410,7 @@ p {
 	padding-left:0;
 }
 .carda ul.diagram  {
-	height:50px;
+	margin-top:1rem;
 }
 
 .carda ul.diagram-date li:first-child, .carda ul.diagram-date li:nth-child(2) {
@@ -1443,7 +1443,7 @@ p {
 
 
 .equipment-emphasis {
-   padding:8px 0;
+   padding:4px 0;
 }
 .equipment-emphasis span, .equipment-emphasis-alarm-critical span, .equipment-emphasis-alarm-high span {
 	font-size:0.8rem;
@@ -1584,7 +1584,7 @@ small.max-width {
 	font-size:.9em;
 }
 .alarm-row{
-	padding:4px 0;
+	padding:6px 0;
 	border-bottom: 1px solid #4f2912
 }
 .alarm-row:hover {
@@ -1714,7 +1714,8 @@ table.status-table {
 
     .accordion .content {
       max-height: 0;
-      overflow: auto;
+      overflow-y: auto;
+	  overflow-x:hidden;
       transition: max-height 0.3s ease;
     }
 
@@ -1733,6 +1734,12 @@ table.status-table {
 	  overflow-y:scroll;
     }
 	
+	.alarms-list .content {
+		overflow:hidden !important;
+	}
+	.alarm-history:first-child {
+		padding-top:16px;
+	}
 
 #nowTime {
 		background:none;
