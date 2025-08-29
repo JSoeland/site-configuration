@@ -58,41 +58,31 @@
 </div>
 		</div>
       </div>
-
-      <div class="nav-item" onclick="window.location='./site_configuration-settings.html';" style="cursor:pointer"><i class="ti ti-table-options"></i>Site Settings</div>
 <div class="active-section">
-  <div class="nav-item selected-item" onclick="window.location='./site_configuration.html';" style="cursor:pointer">
+      <div class="nav-item selected-item">
+	  <i class="ti ti-table-options"></i>Site Settings
+	  </div>
+	  
+	  <div class="nav-item"><i class="ti ti-alert-triangle"></i>Alarms</div>
+	  	  <div class="nav-item"><i class="ti ti-math-symbols"></i>Calculations</div>
+		  	  <div class="nav-item"><i class="ti ti-lock"></i>Certificates</div>
+	  <div class="nav-item"><i class="ti ti-network"></i>Connections</div>
+	  <div class="nav-item"><i class="ti ti-adjustments"></i>Controls</div>
+	  <div class="nav-item"><i class="ti ti-numbers"></i>Enumerations</div>
+	  <div class="nav-item"><i class="ti ti-hierarchy-2"></i>Points</div>
+
+
+</div> 
+
+
+ 
+ 
+  <div class="nav-item" onclick="window.location='./site_configuration.html';" style="cursor:pointer">
     <i class="ti ti-layout"></i>Site Equipment
   </div>
 
-  <div class="nav-item">
-    <div class="nested-row">
-      
-	   <span id="toggleModels" class="active" onclick="showSubmenu('models-submenu')" style="cursor:pointer;">
-	  <i class="ti ti-list"></i>Tree
-	  </span>
+ 
 
-      <!-- "Models" is now clickable -->
-      <span id="toggleModels2" onclick="showSubmenu('models-submenu2')" style="cursor:pointer;">
-        <i class="ti ti-bolt"></i>Models
-      </span>
-    </div>
-
-<div id="models-submenu" style="display:block;">
-<div class="nav-item"><i class="ti ti-chevron-down"></i><i class="ti ti-folder"></i>Substation</div>
-  <div class="nav-item device pointer indent" onclick="window.location='./site_configuration-RTAC.html';"><img src="assets/images/RTAC.svg">RTAC</div>
-  <div class="nav-item device indent"><img src="assets/images/meter.svg">Meter</div>
-  <div class="nav-item"><i class="ti ti-chevron-right"></i><i class="ti ti-folder"></i>Inverters</div>
- </div>
-	<!-- Hidden list of nav-items under Models -->
-    <div id="models-submenu2" style="display:none;">
-      <div class="nav-item device"><img src="assets/images/meter.svg">SEL-735 <span>1</span></div>
-      <div class="nav-item device"><img src="assets/images/RTAC.svg">SEL-3555 <span>1</span></div>
-      <div class="nav-item device"><img src="assets/images/inverter.svg">SMA 2600 <span>5</span></div>
-    </div>
-  </div>
-
-</div>
 	  <div class="nav-item"><i class="ti ti-trash"></i>Trash</div>
     </div>
 
@@ -116,7 +106,7 @@
        <div class="avatar-initial">J</div>
 </div>
       <!-- Header -->
-      <div class="content-header2">Site Equipment
+      <div class="content-header2">Site Settings
 	  
 	  <div class="list-grid">
 	  <i class="ti ti-grid-dots active"></i>
@@ -130,16 +120,40 @@
       <!-- Tile Grid -->
       <div class="tile-grid">
         <div class="tile">
-          <div class="tile-title">Substation</div>
-          <div class="tile-icon"><img src="assets/images/substation.svg" width="24px"></div>
-          <div class="double-pill"><div class="tile-pill pointer" onclick="window.location='./site_configuration-RTAC.html';"><span>1</span>RTAC</div><div class="tile-pill"><span>1</span>Meter</div></div>
+          <div class="tile-title">Alarms</div>
+          <div class="tile-icon"><i class="ti ti-alert-triangle"></i></div>
+          <div class="double-pill"><div class="tile-pill pointer" onclick="window.location='./site_configuration-RTAC.html';"><span>6</span>Site</div><div class="tile-pill"><span>243</span>Device</div></div>
         </div>
         <div class="tile">
-          <div class="tile-title">Inverters</div>
-          <div class="tile-icon"><img src="assets/images/inverter-lb.svg" width="24px"></div>
-          <div class="tile-pill"><span>5</span>SMA 2600</div>
+          <div class="tile-title">Calculations</div>
+          <div class="tile-icon"><i class="ti ti-math-symbols"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>6</span>Analog</div><div class="tile-pill"><span>12</span>Binary</div></div>
         </div>
-       
+		<div class="tile">
+          <div class="tile-title">Certificates</div>
+          <div class="tile-icon"><i class="ti ti-lock"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>6</span>OPC</div><div class="tile-pill"><span>6</span>DNP</div></div>
+        </div>
+		<div class="tile">
+          <div class="tile-title">Connections</div>
+          <div class="tile-icon"><i class="ti ti-network"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>8</span>TCP</div><div class="tile-pill"><span>1</span>Serial</div></div>
+        </div>
+		<div class="tile">
+          <div class="tile-title">Controls</div>
+          <div class="tile-icon"><i class="ti ti-adjustments"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>4</span>Site</div><div class="tile-pill"><span>100</span>Device</div></div>
+        </div>
+       	<div class="tile">
+          <div class="tile-title">Enumerations</div>
+          <div class="tile-icon"><i class="ti ti-numbers"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>4</span>Translations</div><div class="tile-pill"><span>5</span>Bitmasks</div></div>
+        </div>
+		 <div class="tile">
+          <div class="tile-title">Points</div>
+          <div class="tile-icon"><i class="ti ti-hierarchy-2"></i></div>
+         <div class="double-pill"><div class="tile-pill"><span>1230</span>Points</div></div>
+        </div>
 
       </div>
     </div>
