@@ -25,24 +25,26 @@
 
   let currentIndex = 0;
 
-  function renderSnackbar(index) {
-    const data = snackbarData[index];
-    const content = `
-      <div class="row">
-        <div class="col-lg-1">
-          <div class="alarm-pill-${data.level.toLowerCase()}">
-            <i class="ti ti-alert-triangle"></i>${data.level}
-          </div>
-        </div>
-        <div class="col-lg-1">${data.time}</div>
-        <div class="col-lg-2">${data.source}</div>
-        <div class="col-lg-8">
-          <h5>${data.title}</h5>${data.message}
+ function renderSnackbar(index) {
+  const data = snackbarData[index];
+  const content = `
+    <div class="row">
+      <div class="col-lg-1">
+        <div class="alarm-pill-${data.level.toLowerCase()}">
+          <i class="ti ti-alert-triangle"></i>${data.level}
         </div>
       </div>
-    `;
-    document.getElementById('snackbar-content').innerHTML = content;
-  }
+      <div class="col-lg-1">${data.time}</div>
+      <div class="col-lg-1">${data.source}</div>
+      <div class="col-lg-9">
+        <h5>${data.title}</h5>${data.message}
+      </div>
+    </div>
+  `;
+  const snackbarEl = document.getElementById('snackbar');
+  document.getElementById('snackbar-content').innerHTML = content;
+  snackbarEl.classList.add('visible');
+}
 
   function showPrevious() {
     currentIndex = (currentIndex - 1 + snackbarData.length) % snackbarData.length;
@@ -54,7 +56,17 @@
     renderSnackbar(currentIndex);
   }
 
-  // Initial render
+  function closeSnackbar() {
+  const snackbarEl = document.getElementById('snackbar');
+  snackbarEl.classList.remove('visible');
+  localStorage.setItem('snackbarDismissedAt', Date.now().toString());
+}
+
   document.addEventListener('DOMContentLoaded', () => {
+  const dismissedAt = parseInt(localStorage.getItem('snackbarDismissedAt'), 10);
+  const now = Date.now();
+
+  if (isNaN(dismissedAt) || (now - dismissedAt > 10000)) {
     renderSnackbar(currentIndex);
+  }
   });
