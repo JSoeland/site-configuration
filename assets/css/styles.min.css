@@ -1847,14 +1847,23 @@ small #tenMinutesAgoTime {
 	  bottom:0;
 	  margin:.5rem;
 	  width:99%;
-	  display:flex;
+	  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 	}
+
+#snackbar.visible {
+  display: flex; 
+  opacity: 1;
+}	
+	
 #snackbar .row {
     align-items:center;
 }
 #snackbar .left-right i {
 	font-size:1.5rem;
 	padding: 0 .5rem;
+	cursor:pointer;
 }
 
 .connection-details {
@@ -1875,4 +1884,8 @@ small #tenMinutesAgoTime {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+}
+#snackbar-content .col-lg-8 {
+	max-width:600px;
+	font-size:.8rem;
 }
