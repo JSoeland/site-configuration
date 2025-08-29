@@ -1659,7 +1659,7 @@ table.status-table {
       border-radius: 6px;
       overflow: hidden;
       height: 20px;
-	  margin-bottom:12px;
+	  margin-bottom:1rem;
     }
 
     .kw-bar {
@@ -1855,4 +1855,24 @@ small #tenMinutesAgoTime {
 #snackbar .left-right i {
 	font-size:1.5rem;
 	padding: 0 .5rem;
+}
+
+.connection-details {
+	display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+    gap: .5rem;
+	padding-top:1rem;
+}
+.connection-details span {
+	display:block;
+	color:#fff;
+}
+.connection-details div {
+	border-radius:6px;
+	background:rgba(0,0,0,0.4);
+	padding:4px 8px;
+	    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
