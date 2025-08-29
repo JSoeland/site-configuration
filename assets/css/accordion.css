@@ -39,9 +39,12 @@ header {
       background-color: #151b23;
 	  padding: 0 16px;\
     }
+	.accordion-content:hover {
+		overflow:auto;
+	}
 
     .accordion-content.open {
-      max-height: 1800px;
+      max-height: 50vh;
       padding: 16px;
     }
 
@@ -66,7 +69,7 @@ header {
     }
 	
     .carda {
-      padding: 16px;
+      padding: 12px;
       border-radius: 8px;
       border: 1px solid #454545;
 	  color:#fff;
@@ -110,23 +113,27 @@ header {
 	}
 	.carda ul {
 		margin-bottom: 3px !important;
+		    display: flex;
+    justify-content: space-between;
+    align-items: center;
 	}
 	.carda ul li {
-		display:inline-block;
-		padding-left:16px;
+		padding: 4px 16px;
 	}
 	.carda ul li:first-child {
-		width:60%;
+		
 		color:#ddd;
 		line-height:1rem;
 	}
-	.carda ul li:nth-child(2) {
-		width:20%;
-	}
+	
 	.carda ul li:nth-child(3) {
 		width:20%;
 		color:#ddd;
-		font-size:12px;
+		font-size:10px;
+	}
+	.card-grid-system-feedback .carda ul:nth-child(2), .card-grid-system-feedback .carda ul:nth-child(4), .card-grid-inverter .carda ul:nth-child(2), .card-grid-inverter .carda ul:nth-child(4) {
+		background:rgba(0,0,0,0.2);
+		border-radius:6px;
 	}
 	
 	.pill {
@@ -215,3 +222,38 @@ div.field-container {
 	cursor:pointer;
 	backgroud:#0B4E84;
 }
+
+  .tooltip-container2 {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+  .tooltip-container2 i {
+	   color:#909090;
+	}
+
+    .tooltip-text2 {
+      visibility: hidden;
+      opacity: 0;
+      background-color: #fff;
+      color: #000;
+      text-align: left;
+      padding: 8px 10px;
+      border-radius: 4px;
+      position: absolute;
+      z-index: 1;
+      left: 120%; /* position to the right of the icon */
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.3s;
+      white-space: normal;
+      width: 350px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .tooltip-container2:hover .tooltip-text2 {
+      visibility: visible;
+      opacity: 1;
+    }
+
+  

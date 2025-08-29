@@ -949,7 +949,7 @@ img.imgmodal-content {
 		border-radius:6px;
 		padding: 24px 16px;
 		margin:8px 0;
-		height:90px;
+		height:70px;
 	}
 	.card-title small{
 		font-size:12px;
@@ -1191,6 +1191,14 @@ div.search-container {
 	.emphasis {
 		font-size:16px;
 		font-weight:600;
+	}
+	.emphasis span, .carda ul li span {
+		display:block;
+		font-size:10px;
+		font-weight: 400;
+    text-align: right;
+    line-height: 11px;
+    color: #909090;
 	}
 	
 	.active-page {
@@ -1693,7 +1701,6 @@ table.status-table {
 
  .accordion {
       overflow: hidden;
-	  padding:16px 0;
     }
 
     .accordion input {
@@ -1707,7 +1714,7 @@ table.status-table {
 
     .accordion .content {
       max-height: 0;
-      overflow: hidden;
+      overflow: auto;
       transition: max-height 0.3s ease;
     }
 
