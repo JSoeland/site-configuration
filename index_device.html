@@ -87,8 +87,10 @@ height:480px !important;
                 <span class="hide-menu">Site Equipment</span>
               </a>
             </li>
-			<li class="sidebar-item indent no-link">
+			<li class="sidebar-item indent">
+			    <a class="sidebar-link" href="./substation.html" aria-expanded="false">
                 <span class="hide-menu">Substation</span>
+				</a>
             </li>
 			<!--
 			<li class="sidebar-item indent no-link">
@@ -169,7 +171,7 @@ height:480px !important;
 	  <div class="row mb-3 align-items-center">
           <div class="col-lg-6">
 			 <div class="device-name"><h4>Inverter 1.A.2 </h4></div> 
-			 <div class="device-model"> <i class="ti ti-bolt"></i>SMA SC2600</div>
+			 <div class="device-model"> <i class="ti ti-bolt"></i>SMA 4600-S2-US</div>
 			 <div class="device-folder"> <i class="ti ti-folder"></i>Inverters / SMA Inverters</div>
             </div>
 		 <div class="col-lg-6">
@@ -243,21 +245,15 @@ height:480px !important;
 		</div>
 		
 		
-		  
+	
 	<div class="search-bar">
 	<div class="row-begin">
       	  <div class="search-container">
 	  <i class="ti ti-search search-icon"></i>
       <input type="text" placeholder="Search...">
 	  </div>
-	  <label>
-			<div>Server<i class="ti ti-chevron-down"></i></div>
-			  <input type="checkbox" class="dd-input" id="test">
-			  <ul class="dd-menu">
-				<li>[Server 1 Name]</li>
-				<li>[Server 2 Name]</li>
-			  </ul>
-			</label>
+	  <div class="pill active">All</div><div class="pill inactive">Controller Master</div><div class="pill inactive">Monitoring Master</div>
+	 
     </div>
 	</div>
 	
@@ -276,32 +272,21 @@ height:480px !important;
         </tr>
       </thead>
       <tbody>
-        <tr onclick="toggleSidebar()" style="cursor:pointer;">
-		  <td><strong>Point Name</strong><br><small>Server / Dataset Name</small></td>
-		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Holding Register</small></td>
-          <td>440016</td>
+	   <tr>         
+		<td></td>
+		  <td><strong>DC Voltage Avg</strong></td>
+		  <td><div class="icon-left"><i class="ti ti-calculator" style="color:#909090;"></i></div><strong>Calculation</strong><br><small>Average</small></td>
           <td><span class="greendot">•</span>Online</td>
 		  <td>56</td>
 		   <td>56</td>
-		   <td>%</td>
+		   <td>Volts</td>
 		    <td><small>4/8/25</small><br>10:34:45 AM</td>
           <td><small>4/8/25</small><br>10:34:45 AM</td>
         </tr>
         <tr>
-		  <td><strong>Point Name</strong><br><small>Server / Dataset Name</small></td>
-		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Holding Register</small></td>
-          <td>440016</td>
-          <td><span class="greendot">•</span>Online</td>
-		  <td>56</td>
-		   <td>56</td>
-		   <td></td>
-		    <td><small>4/8/25</small><br>10:34:45 AM</td>
-          <td><small>4/8/25</small><br>10:34:45 AM</td>
-        </tr>
-        <tr>
-		  <td><strong>Point Name</strong><br><small>Server / Dataset Name</small></td>
+		          <td>30009</td>
+		  <td><strong>DC Current</strong><br><small>Monitoring Master / Inputs-2</small></td>
 		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Input Register</small></td>
-          <td>440016</td>
           <td><span class="greendot">•</span>Online</td>
 		  <td>56</td>
 		   <td>56</td>
@@ -310,9 +295,21 @@ height:480px !important;
           <td><small>4/8/25</small><br>10:34:45 AM</td>
         </tr>
         <tr>
-		  <td><strong>Calculation Name</strong></td>
-		  <td><div class="icon-left"><i class="ti ti-calculator" style="color:#909090;"></i></div><strong>Calculation</strong><br><small>Average</small></td>
-          <td>440016</td>
+		          <td>30011</td>
+		  <td><strong>DC Power</strong><br><small>Monitoring Master / Inputs-2</small></td>
+		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Input Register</small></td>
+          <td><span class="greendot">•</span>Online</td>
+		  <td>56</td>
+		   <td>56</td>
+		   <td>kW</td>
+		    <td><small>4/8/25</small><br>10:34:45 AM</td>
+          <td><small>4/8/25</small><br>10:34:45 AM</td>
+        </tr>
+        
+		 <tr>        
+		 <td>30013</td>
+		  <td><strong>DC Voltage-1</strong><br><small>Monitoring Master / Inputs-2</small></td>
+		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Input Register</small></td>
           <td><span class="greendot">•</span>Online</td>
 		  <td>56</td>
 		   <td>56</td>
@@ -320,17 +317,29 @@ height:480px !important;
 		    <td><small>4/8/25</small><br>10:34:45 AM</td>
           <td><small>4/8/25</small><br>10:34:45 AM</td>
         </tr>
-		        <tr>
-		  <td><strong>Point Name</strong><br><small>Server / Dataset Name</small></td>
-		  <td><div class="icon-left"><i class="ti ti-arrow-right"></i></div><strong>Modbus</strong><br><small>Analog Setpoint</small></td>
-          <td>440016</td>
+		<tr onclick="toggleSidebar()" style="cursor:pointer;">          
+		<td>30015</td>
+		  <td><strong>DV Voltage-2</strong><br><small>Monitoring Master / Inputs-2</small></td>
+		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Input Register</small></td>
           <td><span class="greendot">•</span>Online</td>
 		  <td>56</td>
 		   <td>56</td>
-		   <td>%</td>
+		   <td>Volts</td>
 		    <td><small>4/8/25</small><br>10:34:45 AM</td>
           <td><small>4/8/25</small><br>10:34:45 AM</td>
         </tr>
+        <tr>        
+		 <td>30017</td>
+		  <td><strong>DC Voltage-3</strong><br><small>Monitoring Master / Inputs-2</small></td>
+		  <td><div class="icon-left"><i class="ti ti-arrow-left"></i></div><strong>Modbus</strong><br><small>Input Register</small></td>
+          <td><span class="greendot">•</span>Online</td>
+		  <td>56</td>
+		   <td>56</td>
+		   <td>Volts</td>
+		    <td><small>4/8/25</small><br>10:34:45 AM</td>
+          <td><small>4/8/25</small><br>10:34:45 AM</td>
+        </tr>
+		       
 		
        
         <!-- Add more rows here as needed -->
@@ -344,7 +353,7 @@ height:480px !important;
       <h2>Point Name</h2>
       <span style="cursor: pointer;" onclick="toggleSidebar()">✕</span>
     </div>
-    <div class="sidebar-subtitle">Server / Dataset Name</div>
+    <div class="sidebar-subtitle">Inverter Controller / Control Feedback - 1</div>
 	<div class="point-sidebar-greendot"><span class="greendot">•</span>Online</div>
 	
 	<div class="row force-value mt-2">
