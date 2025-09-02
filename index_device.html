@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/sidebar.css" />
   <link rel="stylesheet" href="assets/css/accordion.css" />
   	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	
+	  <script src="assets/js/alert.js"></script>
 	<style>
 #energyChart {
 width:880px !important;
@@ -181,32 +181,21 @@ height:480px !important;
 	<ul class="tab"><li class="active">Overview</li><li>Controls</li></ul>
 	</div>
 	
-     <div id="snackbar">
-		<div class="col-lg-1 left-right">
-			<i class="ti ti-chevron-left"></i>
-			<i class="ti ti-chevron-right"></i>
-	  </div>
-	  <div class="col-lg-9">
-			<div class="row">
-			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
-			<div class="col-lg-1">10:02 AM  </div>
-			<div class="col-lg-1"> Inverter 1.A.2</div>
-			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
-			 </div>
-	  </div>
-	  <div class="col-lg-2 snackbar-cta">
-	   <a href ="./alarms.html">Go to Alarms</a>
-	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
-	  </div>
+    <div id="snackbar">
+  <div class="col-lg-1 left-right">
+    <i class="ti ti-chevron-left" onclick="showPrevious()"></i>
+    <i class="ti ti-chevron-right" onclick="showNext()"></i>
   </div>
-	<!--
-	<div class="status-bar mt-3">
-      <div>Error Count <h4>0</h4></div>
-      <div>Timeouts <h4>20129</h4></div>
-      <div>Receive (Rx) <h4>2563015</h4></div>
-      <div>Transmit (Tx) <h4>0</h4></div>
-    </div>
--->
+  
+  <div class="col-lg-9" id="snackbar-content">
+    <!-- Content will be dynamically loaded here -->
+  </div>
+  
+  <div class="col-lg-2 snackbar-cta">
+    <a href="./alarms.html">Go to Alarms</a>
+    <button class="close-btn" onclick="closeSnackbar()">✖</button>
+  </div>
+</div>
 
 			
 		<div class="row">
@@ -503,11 +492,7 @@ function toggleControl(header) {
       document.getElementById('sidebar2').classList.toggle('open');
     }
   </script>
-   <script>
-    function closeSnackbar() {
-      document.getElementById("snackbar").style.display = "none";
-    }
-  </script>
+  
 
 
 

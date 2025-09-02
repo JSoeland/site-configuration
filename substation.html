@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/css/accordion.css" />
   	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
 	<script src="assets/js/chart.min.js"></script>
+  <script src="assets/js/alert.js"></script>
 
  <style>
     .power-line-container {
@@ -557,7 +558,24 @@
 
 <body style="overflow-x:hidden;" class="dot-grid">
 
+
 <div id="snackbar">
+  <div class="col-lg-1 left-right">
+    <i class="ti ti-chevron-left" onclick="showPrevious()"></i>
+    <i class="ti ti-chevron-right" onclick="showNext()"></i>
+  </div>
+  
+  <div class="col-lg-9" id="snackbar-content">
+    <!-- Content will be dynamically loaded here -->
+  </div>
+  
+  <div class="col-lg-2 snackbar-cta">
+    <a href="./alarms.html">Go to Alarms</a>
+    <button class="close-btn" onclick="closeSnackbar()">✖</button>
+  </div>
+</div>
+
+<!--<div id="snackbar">
 		<div class="col-lg-1 left-right">
 			<i class="ti ti-chevron-left"></i>
 			<i class="ti ti-chevron-right"></i>
@@ -575,6 +593,7 @@
 	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
 	  </div>
  </div>
+ -->
   <!--  Body Wrapper -->
   
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -1153,11 +1172,7 @@
     }
   </script>
   
-   <script>
-    function closeSnackbar() {
-      document.getElementById("snackbar").style.display = "none";
-    }
-  </script>
+   
   
      <script>
     const modal = document.getElementById('confirmModal');
@@ -1177,6 +1192,8 @@
       }
     });
   </script>
+  
+  
 </body>
 
 </html>

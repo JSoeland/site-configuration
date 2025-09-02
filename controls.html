@@ -8,27 +8,28 @@
   <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="assets/css/styles.min.css" />
   <link rel="stylesheet" href="assets/css/accordion.css" />
+    <script src="assets/js/alert.js"></script>
+
 </head>
 
 <body style="overflow-x: hidden;">
+
+
 <div id="snackbar">
-		<div class="col-lg-1 left-right">
-			<i class="ti ti-chevron-left"></i>
-			<i class="ti ti-chevron-right"></i>
-	  </div>
-	  <div class="col-lg-9">
-			<div class="row">
-			<div class="col-lg-1"><div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>High</div></div>
-			<div class="col-lg-1">10:02 AM  </div>
-			<div class="col-lg-1"> Inverter 1.A.2</div>
-			 <div class="col-lg-9"><h5>Inverter Fault</h5>Inverter has reported the following fault: (Insulation impedance)</div>
-			 </div>
-	  </div>
-	  <div class="col-lg-2 snackbar-cta">
-	   <a href ="./alarms.html">Go to Alarms</a>
-	  <button class="close-btn" onclick="closeSnackbar()">✖</button>
-	  </div>
+  <div class="col-lg-1 left-right">
+    <i class="ti ti-chevron-left" onclick="showPrevious()"></i>
+    <i class="ti ti-chevron-right" onclick="showNext()"></i>
   </div>
+  
+  <div class="col-lg-9" id="snackbar-content">
+    <!-- Content will be dynamically loaded here -->
+  </div>
+  
+  <div class="col-lg-2 snackbar-cta">
+    <a href="./alarms.html">Go to Alarms</a>
+    <button class="close-btn" onclick="closeSnackbar()">✖</button>
+  </div>
+</div>
 
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -622,11 +623,6 @@ function toggleControl(header) {
     updateTime();
   </script>
 
-<script>
-    function closeSnackbar() {
-      document.getElementById("snackbar").style.display = "none";
-    }
-  </script>
   
  
 
