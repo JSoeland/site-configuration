@@ -16,7 +16,7 @@
  <style>
     .power-line-container {
       position: absolute;
-	  left:586px;
+	  left:386px;
 	  top:620px;
       width: 158px;
       height: 2px;
@@ -34,9 +34,9 @@
 	
 	.power-line-container2 {
       position: absolute;
-	  left:740px;
+	  left:536px;
 	  top:620px;
-      width: 160px;
+      width: 510px;
       height: 2px;
       margin: 50px;
       background: repeating-linear-gradient(
@@ -103,7 +103,7 @@
     }
 	 .vertical-power-line-container5 {
       position: absolute;
-	  left:900px;
+	  left:600px;
 	  top:630px;
       width: 2px;
       height: 100px;
@@ -121,7 +121,7 @@
 	
 	 .vertical-power-line-container2 {
       position: absolute;
-	  left:584px;
+	  left:384px;
 	  top:624px;
       width: 2px;
       height: 140px;
@@ -138,7 +138,7 @@
     }
 	 .vertical-power-line-container6 {
       position: absolute;
-	  left:584px;
+	  left:384px;
 	  top:804px;
       width: 2px;
       height: 40px;
@@ -154,9 +154,44 @@
 	  opacity:0;
     }
 	
+	 .vertical-power-line-container7 {
+       position: absolute;
+	  left:1045px;
+	  top:784px;
+      width: 2px;
+      height: 160px;
+      margin: 50px;
+      background: repeating-linear-gradient(
+        to top,
+        transparent,
+        transparent 6px,
+        #FF3E32 6px,
+        #FF3E32 10px
+      );
+      animation: vertical-flow 1s linear infinite;
+    }
+
+.vertical-power-line-container77 {
+      position: absolute;
+	  left:1045px;
+	  top:630px;
+      width: 2px;
+      height: 100px;
+      margin: 50px;
+      background: repeating-linear-gradient(
+        to top,
+        transparent,
+        transparent 6px,
+        #fff 6px,
+        #fff 10px
+      );
+	  animation: fadeIn .4s ease-in forwards;
+	  opacity:0;
+    }
+	
 	 .vertical-power-line-container3 {
       position: absolute;
-	  left:900px;
+	  left:600px;
 	  top:784px;
       width: 2px;
       height: 160px;
@@ -206,7 +241,7 @@
 	}
 	.capbank {
 	  position:absolute;
-	  left:624px;
+	  left:424px;
 	  top:866px;
 	  display:inline-flex;
 	  align-items:center;
@@ -224,7 +259,7 @@
 	}
 	.ground {
 	  position:absolute;
-	  left:624px;
+	  left:424px;
 	  top:940px;
 	}
 	 .tile {
@@ -324,7 +359,7 @@
 	.cb2 {
 	  position:absolute;
 	  top:700px;
-	  left:295px;
+	  left:95px;
 	}
 	.cb2 .device-tile:hover {
 	 background:#151b23;
@@ -332,7 +367,12 @@
 	.cb3 {
 	  position:absolute;
 	  top:700px;
-	  left:856px;
+	  left:556px;
+	}
+	.cb4 {
+	  position:absolute;
+	  top:700px;
+	  left:1000px;
 	}
 	.t1 {
 	  position:absolute;
@@ -361,19 +401,19 @@
 	   background: #0F2D1F;
 	   border:1px solid #7AFFBF;
 	   text-align:center;
-	   padding:.5rem .75rem;
+	   padding:.4rem .6rem;
 	   display:inline-flex;
 	   border-radius:6px;
-	   margin:1rem 1rem .25rem 0;
+	   margin:1rem .8rem .25rem 0;
 	}
 	.red-button {
 	   background: #7A2D2A;
 	   border: 1px solid #FF3E32;
 	   text-align:center;
-	   padding:.5rem .75rem;
+	   padding:.4rem .6rem;
 	   display:inline-flex;
 	   border-radius:6px;
-	   margin:1rem 1rem .25rem 0;
+	   margin:1rem .8rem .25rem 0;
 	}
     .diagram-tile {
 	   display:flex;
@@ -485,9 +525,15 @@
     text-align: center;
     position: absolute;
     top: 980px;
-    left:910px;
+    left:610px;
 	}
-	.switching-station i, .to-inverters i.white{
+	.to-inverters2 {
+    text-align: center;
+    position: absolute;
+    top: 980px;
+    left:1067px;
+	}
+	.switching-station i, .to-inverters i.white, .to-inverters2 i.white {
 	color:#fff;
 	font-size:1.5rem;
 	}
@@ -791,12 +837,20 @@
 <div class="vertical-power-line-container6"></div>
 <div class="target"></div>
 
+<div class="source"></div>
+<div class="vertical-power-line-container77"></div>
+<div class="target"></div>
+
+<div class="source"></div>
+<div class="vertical-power-line-container7"></div>
+<div class="target"></div>
+
 <div class="tile">
   <div class="tile-header">
-    <h2>Owner Meter</h2>
+    <h2>POI Meter</h2>
     <h6>SEL-735</h6>
 	<img src="assets/images/meter-blue.svg"/>
-     <h1 class="number-box" id="numberBox">48.97</h1>
+     <h1 class="number-box" id="numberBox">99.97</h1>
 	 <div class="tile-stats">
 	 <div class="stat-left">Reactive Power</div><div class="stat-right"><div id="numberBox2">1.13</div><span>MVAR</span></div>
 	 </div>
@@ -837,6 +891,10 @@
 <i class="ti ti-chevron-down white"></i>
 <h6>Inverters</h6>
 <div class="alarm-pill-high"> <i class="ti ti-alert-triangle"></i>1 High</div>
+</div>
+<div class="to-inverters2">
+<i class="ti ti-chevron-down white"></i>
+<h6>Inverters</h6>
 </div>
 <div class="diagram-tile cb1">
 <div class="chip">closed</div>
@@ -880,10 +938,28 @@
    <h5>Circuit Breaker (52-F1)</h5>
    <h6>35kV/2000A</h6>
     <div class="tile-stats">
-	 <div class="stat-left">11 F1 P</div><div class="stat-right">52.12<span>MW</span></div>
+	 <div class="stat-left">11 F1 P</div><div class="stat-right">49.45<span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
 	 <div class="stat-left">11 F1 Q</div><div class="stat-right"><div id="numberBox7">8.31</div><span>MVAR</span></div>
+	 </div>
+	 <div class="green-button">Local</div><div class="red-button">Manual</div>
+</div>
+</div>
+
+
+<div class="diagram-tile cb4">
+<div class="chip">closed</div>
+<div><img src="assets/images/circuit-breaker_closed.svg"></div>
+<div class="device-tile">
+   <div class="device-tile-header"><h5>11-F2</h5><i class="ti ti-lock"></i></div>
+   <h5>Circuit Breaker (52-F2)</h5>
+   <h6>35kV/2000A</h6>
+    <div class="tile-stats">
+	 <div class="stat-left">11 F2 P</div><div class="stat-right">49.12<span>MW</span></div>
+	 </div>
+	  <div class="tile-stats">
+	 <div class="stat-left">11 F2 Q</div><div class="stat-right"><div id="numberBox8">8.31</div><span>MVAR</span></div>
 	 </div>
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
@@ -1054,7 +1130,7 @@
   </script>
   
   <script>
-  const numbers = [48.97, 49.04, 51.28, 50.56]; // You can customize this
+  const numbers = [98.97, 99.04, 98.28, 99.56]; // You can customize this
   let index = 0;
 
   const numberBox = document.getElementById('numberBox');
@@ -1164,6 +1240,22 @@
   setInterval(updateNumber7, 6000); // Change every 5 seconds
 
   updateNumber7(); // Initial display
+</script>
+
+<script>
+  const numbers8 = [8.32, 8.47, 8.36, 8.41]; // You can customize this
+  let index8 = 0;
+
+  const numberBox8 = document.getElementById('numberBox8');
+
+  function updateNumber8() {
+    numberBox8.textContent = numbers8[index8];
+    index8 = (index8 + 1) % numbers8.length; // Loop back to 0 after last
+  }
+
+  setInterval(updateNumber8, 5500); // Change every 5 seconds
+
+  updateNumber8(); // Initial display
 </script>
 
  <script>
