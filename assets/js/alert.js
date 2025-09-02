@@ -35,8 +35,8 @@
         </div>
       </div>
       <div class="col-lg-1">${data.time}</div>
-      <div class="col-lg-1">${data.source}</div>
-      <div class="col-lg-9">
+      <div class="col-lg-2">${data.source}</div>
+      <div class="col-lg-8">
         <h5>${data.title}</h5>${data.message}
       </div>
     </div>
