@@ -599,6 +599,37 @@
 	 height: 156px;
     background: #0d1117;
 	}
+		.controls {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		bottom: 10px;
+		right: 10px;
+		position: fixed;
+		z-index:10;
+    }
+	.controls .move-controls {
+	     background:rgba(0,0,0,0.4);
+		 padding:1px;
+		 font-size:1.8rem;
+		 margin:0;
+		 vertical-align:middle;
+		 line-height:1.2rem;
+	}
+	.controls .move-controls-x {
+		background:none;
+		padding:4px;
+		vertical-align:middle;
+		line-height:1.2rem;
+		color:#909090;
+	}
+	#moveable-box {
+	width:100%;
+	height:1500px;
+	position:absolute;
+	top:0;
+	left:0;
+	}
   </style>
 </head>
 
@@ -801,8 +832,60 @@
 <div class="row mb-3">
 	<ul class="tab"><li class="active">Overview</li><li>Controls</li></ul>
 </div>
-	
 
+ <div class="controls">
+    <div class="moveup">
+      <button class="move-controls" onclick="move('up')"><i class="ti ti-chevron-up"></i></button>
+    </div>
+    <div class="moveleftrightdown">
+      <button class="move-controls" onclick="move('left')"><i class="ti ti-chevron-left"></i></button>
+	  	    <button class="move-controls-x" onclick="resetPosition()"><i class="ti ti-focus"></i></button>
+
+      <button class="move-controls" onclick="move('right')"><i class="ti ti-chevron-right"></i></button>
+    </div>
+      <button class="move-controls" onclick="move('down')"><i class="ti ti-chevron-down"></i></button>
+
+  </div>
+  
+<div class="tile">
+  <div class="tile-header">
+    <h2>POI Meter</h2>
+    <h6>SEL-735</h6>
+	<img src="assets/images/meter-blue.svg"/>
+     <h1 class="number-box" id="numberBox">99.97</h1>
+	 <div class="tile-stats">
+	 <div class="stat-left">Reactive Power</div><div class="stat-right"><div id="numberBox2">1.13</div><span>MVAR</span></div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">Bus Voltage</div><div class="stat-right">139.29<span>kV</span></div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">Frequency</div><div class="stat-right">59.99<span>Hz</span></div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">Power Factor</div><div class="stat-right">0.999<span>pf</span></div>
+	 </div>
+  </div>
+  <div class="graph-container">
+    <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+      <!-- More complex line with varied ups and downs, highest peak in center -->
+      <polyline class="line" points="
+       0,30 1,29 2,28 3,29 4,26 5,25 6,24 7,24 8,22 9,21
+        10,20 11,19 12,19 13,17 14,16 15,16 16,14 17,16 18,13 19,11
+        20,10 21,9 22,14 23,7 24,6 25,5 26,12 27,6 28,5 29,4
+        30,5 31,6 32,4 33,5 34,6 35,5 36,4 37,6 38,5 39,4
+        40,5 41,6 42,4 43,8 44,6 45,5 46,5 47,6 48,4 49,5
+        50,5 51,4 52,6 53,5 54,4 55,6 56,5 57,5 58,4 59,6
+        60,5 61,6 62,4 63,5 64,6 65,4 66,5 67,6 68,4 69,5
+        70,6 71,5 72,4 73,6 74,6 75,10 76,4 77,5 78,6 79,5
+        80,5 81,6 82,4 83,5 84,6 85,5 86,4 87,8 88,5 89,6
+        90,4 91,5 92,6 93,5 94,4 95,5 96,6 97,5 98,10 99,12 100,16
+      " />
+    </svg>
+  </div>
+</div>	
+
+<div id="moveable-box">
 <div class="source"></div>
 <div class="power-line-container"></div>
 <div class="target"></div>
@@ -845,43 +928,7 @@
 <div class="vertical-power-line-container7"></div>
 <div class="target"></div>
 
-<div class="tile">
-  <div class="tile-header">
-    <h2>POI Meter</h2>
-    <h6>SEL-735</h6>
-	<img src="assets/images/meter-blue.svg"/>
-     <h1 class="number-box" id="numberBox">99.97</h1>
-	 <div class="tile-stats">
-	 <div class="stat-left">Reactive Power</div><div class="stat-right"><div id="numberBox2">1.13</div><span>MVAR</span></div>
-	 </div>
-	 <div class="tile-stats">
-	 <div class="stat-left">Bus Voltage</div><div class="stat-right">139.29<span>kV</span></div>
-	 </div>
-	 <div class="tile-stats">
-	 <div class="stat-left">Frequency</div><div class="stat-right">59.99<span>Hz</span></div>
-	 </div>
-	 <div class="tile-stats">
-	 <div class="stat-left">Power Factor</div><div class="stat-right">0.999<span>pf</span></div>
-	 </div>
-  </div>
-  <div class="graph-container">
-    <svg viewBox="0 0 100 50" preserveAspectRatio="none">
-      <!-- More complex line with varied ups and downs, highest peak in center -->
-      <polyline class="line" points="
-       0,30 1,29 2,28 3,29 4,26 5,25 6,24 7,24 8,22 9,21
-        10,20 11,19 12,19 13,17 14,16 15,16 16,14 17,16 18,13 19,11
-        20,10 21,9 22,14 23,7 24,6 25,5 26,12 27,6 28,5 29,4
-        30,5 31,6 32,4 33,5 34,6 35,5 36,4 37,6 38,5 39,4
-        40,5 41,6 42,4 43,8 44,6 45,5 46,5 47,6 48,4 49,5
-        50,5 51,4 52,6 53,5 54,4 55,6 56,5 57,5 58,4 59,6
-        60,5 61,6 62,4 63,5 64,6 65,4 66,5 67,6 68,4 69,5
-        70,6 71,5 72,4 73,6 74,6 75,10 76,4 77,5 78,6 79,5
-        80,5 81,6 82,4 83,5 84,6 85,5 86,4 87,8 88,5 89,6
-        90,4 91,5 92,6 93,5 94,4 95,5 96,6 97,5 98,10 99,12 100,16
-      " />
-    </svg>
-  </div>
-</div>
+
 
 <div class="switching-station">
 <h6>To Utility Switching Station</h6>
@@ -904,7 +951,7 @@
    <h5>Circuit Breaker (52-HV1)</h5>
    <h6>138kV/2000A</h6>
     <div class="tile-stats">
-	 <div class="stat-left">Real Power-Ph 3</div><div class="stat-right"><div id="numberBox3">50.80</div><span>MW</span></div>
+	 <div class="stat-left">Real Power-Ph 3</div><div class="stat-right"><div id="numberBox3">98.80</div><span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
 	 <div class="stat-left">Reactive Power-Ph 3</div><div class="stat-right"><div id="numberBox4">1.18</div><span>MVAR</span></div>
@@ -992,7 +1039,7 @@
 <div class="ground"><img src="assets/images/ground.svg"></div>	
 </div>
 </div>	
- 
+ </div>
  
 
   <div class="sidebar-container" id="sidebar">
@@ -1146,7 +1193,7 @@
 </script>
 
 <script>
-  const numbers3 = [50.80, 51.37, 53.18, 51.29]; // You can customize this
+  const numbers3 = [98.80, 99.37, 98.18, 98.29]; // You can customize this
   let index3 = 0;
 
   const numberBox3 = document.getElementById('numberBox3');
@@ -1285,6 +1332,48 @@
     });
   </script>
   
+  <script>
+    const box = document.getElementById('moveable-box');
+
+// Store the original position
+const originalTop = 0;
+const originalLeft = 0;
+
+// Initialize position variables
+let topPos = originalTop;
+let leftPos = originalLeft;
+
+const step = 20;
+
+function move(direction) {
+  switch(direction) {
+    case 'up':
+      topPos -= step;
+      break;
+    case 'down':
+      topPos += step;
+      break;
+    case 'left':
+      leftPos -= step;
+      break;
+    case 'right':
+      leftPos += step;
+      break;
+  }
+  updatePosition();
+}
+
+function resetPosition() {
+  topPos = originalTop;
+  leftPos = originalLeft;
+  updatePosition();
+}
+
+function updatePosition() {
+  box.style.top = topPos + 'px';
+  box.style.left = leftPos + 'px';
+}
+  </script>
   
 </body>
 
