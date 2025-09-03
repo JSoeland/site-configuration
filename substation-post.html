@@ -772,7 +772,7 @@
 	<img src="assets/images/meter-blue.svg"/>
      <h1 class="number-box" id="numberBox">48.97</h1>
 	 <div class="tile-stats">
-	 <div class="stat-left">Reactive Power</div><div class="stat-right">1.40<span>MVAR</span></div>
+	 <div class="stat-left">Reactive Power</div><div class="stat-right">-3.2<span>MVAR</span></div>
 	 </div>
 	 <div class="tile-stats">
 	 <div class="stat-left">Bus Voltage</div><div class="stat-right">139.29<span>kV</span></div>
@@ -852,12 +852,13 @@
    <div class="device-tile-header"><h5>11-HV1</h5><i class="ti ti-lock"></i></div>
    <h5>Circuit Breaker (52-HV1)</h5>
    <h6>138kV/2000A</h6>
+     <div class="tile-stats">
+	 <div class="stat-left">Reactive Power-Ph 3</div><div class="stat-right">-3.4<span>MVAR</span></div>
+	 </div>
     <div class="tile-stats">
 	 <div class="stat-left">Real Power-Ph 3</div><div class="stat-right">98.13<span>MW</span></div>
 	 </div>
-	  <div class="tile-stats">
-	 <div class="stat-left">Reactive Power-Ph 3</div><div class="stat-right">1.45<span>MVAR</span></div>
-	 </div>
+	
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
 </div>
@@ -868,7 +869,7 @@
    <h5>Circuit Breaker (52-C1)</h5>
    <h6>35kV/1200A</h6>
     <div class="tile-stats">
-	 <div class="stat-left">11 C1 Q</div><div class="stat-right">12.00<span>MVAR</span></div>
+	 <div class="stat-left">11 C1 Q</div><div class="stat-right"><div id="numberBox5">15.2</div><span>MVAR</span></div>
 	 </div>
 	  <div class="tile-stats">
 	 <div class="stat-left">Charge Voltage</div><div class="stat-right">0.87<span>kV</span></div>
@@ -890,7 +891,7 @@
 	 <div class="stat-left">11 F1 P</div><div class="stat-right">49.45<span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
-	 <div class="stat-left">11 F1 Q</div><div class="stat-right">-4.23<span>MVAR</span></div>
+	 <div class="stat-left">11 F1 Q</div><div class="stat-right">-1.3<span>MVAR</span></div>
 	 </div>
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
@@ -908,7 +909,7 @@
 	 <div class="stat-left">11 F2 P</div><div class="stat-right">49.12<span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
-	 <div class="stat-left">11 F2 Q</div><div class="stat-right"><div id="numberBox8">8.31</div><span>MVAR</span></div>
+	 <div class="stat-left">11 F2 Q</div><div class="stat-right"><div id="numberBox8">-1.4</div><span>MVAR</span></div>
 	 </div>
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
@@ -1163,6 +1164,22 @@ function updatePosition() {
   box.style.left = leftPos + 'px';
 }
   </script>
+  
+  <script>
+  const numbers5 = [15.2, 15.4, 15.3, 15.5]; // You can customize this
+  let index5 = 0;
+
+  const numberBox5 = document.getElementById('numberBox5');
+
+  function updateNumber5() {
+    numberBox5.textContent = numbers5[index5];
+    index5 = (index5 + 1) % numbers5.length; // Loop back to 0 after last
+  }
+
+  setInterval(updateNumber5, 7000); // Change every 5 seconds
+
+  updateNumber5(); // Initial display
+</script>
 </body>
 
 </html>

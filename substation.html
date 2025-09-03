@@ -18,7 +18,7 @@
       position: absolute;
 	  left:386px;
 	  top:620px;
-      width: 158px;
+      width: 216px;
       height: 2px;
       margin: 50px;
       background: repeating-linear-gradient(
@@ -34,20 +34,36 @@
 	
 	.power-line-container2 {
       position: absolute;
-	  left:536px;
+	  left:746px;
 	  top:620px;
-      width: 510px;
+      width: 300px;
       height: 2px;
       margin: 50px;
       background: repeating-linear-gradient(
         to right,
         transparent,
         transparent 6px,
-        #fff 6px,
-        #fff 10px
+        #FF3E32 6px,
+        #FF3E32 10px
       );
-	  animation: fadeIn .4s ease-in forwards;
-	  opacity:0;
+	  animation: flow2 1s linear infinite;
+    }
+	
+	.power-line-container3 {
+      position: absolute;
+	  left:600px;
+	  top:620px;
+      width: 150px;
+      height: 2px;
+      margin: 50px;
+      background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 6px,
+        #FF3E32 6px,
+        #FF3E32 10px
+      );
+	  animation: flow 1s linear infinite;
     }
 
     @keyframes flow {
@@ -72,51 +88,48 @@
 	  left:745px;
 	  top:150px;
       width: 2px;
-      height: 80px;
+      height: 180px;
       margin: 50px;
       background: repeating-linear-gradient(
         to top,
         transparent,
         transparent 6px,
-        #fff 6px,
-        #fff 10px
+          #FF3E32 6px,
+        #FF3E32 10px
       );
-	  animation: fadeIn .4s ease-in forwards;
-	  opacity:0;
+	 animation: vertical-flow 1s linear infinite;
     }
 	 .vertical-power-line-container4 {
       position: absolute;
 	  left:745px;
 	  top:308px;
       width: 2px;
-      height: 320px;
+      height: 314px;
       margin: 50px;
       background: repeating-linear-gradient(
         to top,
         transparent,
         transparent 6px,
-        #fff 6px,
-        #fff 10px
+         #FF3E32 6px,
+        #FF3E32 10px
       );
-	  animation: fadeIn .4s ease-in forwards;
-	  opacity:0;
+	 animation: vertical-flow 1s linear infinite;
     }
 	 .vertical-power-line-container5 {
       position: absolute;
 	  left:600px;
 	  top:630px;
       width: 2px;
-      height: 100px;
+      height: 150px;
       margin: 50px;
       background: repeating-linear-gradient(
         to top,
         transparent,
         transparent 6px,
-        #fff 6px,
-        #fff 10px
+        #FF3E32 6px,
+        #FF3E32 10px
       );
-	  animation: fadeIn .4s ease-in forwards;
-	  opacity:0;
+	  animation: vertical-flow 1s linear infinite;
     }
 	
 	 .vertical-power-line-container2 {
@@ -176,17 +189,16 @@
 	  left:1045px;
 	  top:630px;
       width: 2px;
-      height: 100px;
+      height: 150px;
       margin: 50px;
       background: repeating-linear-gradient(
         to top,
         transparent,
         transparent 6px,
-        #fff 6px,
-        #fff 10px
+        #FF3E32 6px,
+        #FF3E32 10px
       );
-	  animation: fadeIn .4s ease-in forwards;
-	  opacity:0;
+	  animation: vertical-flow 1s linear infinite;
     }
 	
 	 .vertical-power-line-container3 {
@@ -854,7 +866,7 @@
 	<img src="assets/images/meter-blue.svg"/>
      <h1 class="number-box" id="numberBox">99.97</h1>
 	 <div class="tile-stats">
-	 <div class="stat-left">Reactive Power</div><div class="stat-right"><div id="numberBox2">1.13</div><span>MVAR</span></div>
+	 <div class="stat-left">Reactive Power</div><div class="stat-right"><div id="numberBox2">-16.6</div><span>MVAR</span></div>
 	 </div>
 	 <div class="tile-stats">
 	 <div class="stat-left">Bus Voltage</div><div class="stat-right">139.29<span>kV</span></div>
@@ -895,6 +907,9 @@
 <div class="power-line-container2"></div>
 <div class="target"></div>
 
+<div class="source"></div>
+<div class="power-line-container3"></div>
+<div class="target"></div>
 
 <div class="source"></div>
 <div class="vertical-power-line-container"></div>
@@ -951,11 +966,12 @@
    <h5>Circuit Breaker (52-HV1)</h5>
    <h6>138kV/2000A</h6>
     <div class="tile-stats">
+	 <div class="stat-left">Reactive Power-Ph 3</div><div class="stat-right"><div id="numberBox4">-16.6</div><span>MVAR</span></div>
+	 </div>
+    <div class="tile-stats">
 	 <div class="stat-left">Real Power-Ph 3</div><div class="stat-right"><div id="numberBox3">98.80</div><span>MW</span></div>
 	 </div>
-	  <div class="tile-stats">
-	 <div class="stat-left">Reactive Power-Ph 3</div><div class="stat-right"><div id="numberBox4">1.18</div><span>MVAR</span></div>
-	 </div>
+	 
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
 </div>
@@ -966,7 +982,7 @@
    <h5>Circuit Breaker (52-C1)</h5>
    <h6>35kV/1200A</h6>
     <div class="tile-stats">
-	 <div class="stat-left">11 C1 Q</div><div class="stat-right"><div id="numberBox5">0.01</div><span>MVAR</span></div>
+	 <div class="stat-left">11 C1 Q</div><div class="stat-right">0.0<span>MVAR</span></div>
 	 </div>
 	  <div class="tile-stats">
 	 <div class="stat-left">Charge Voltage</div><div class="stat-right"><div id="numberBox6">0.87</div><span>kV</span></div>
@@ -988,7 +1004,7 @@
 	 <div class="stat-left">11 F1 P</div><div class="stat-right">49.45<span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
-	 <div class="stat-left">11 F1 Q</div><div class="stat-right"><div id="numberBox7">8.31</div><span>MVAR</span></div>
+	 <div class="stat-left">11 F1 Q</div><div class="stat-right"><div id="numberBox7">-8.31</div><span>MVAR</span></div>
 	 </div>
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
@@ -1006,7 +1022,7 @@
 	 <div class="stat-left">11 F2 P</div><div class="stat-right">49.12<span>MW</span></div>
 	 </div>
 	  <div class="tile-stats">
-	 <div class="stat-left">11 F2 Q</div><div class="stat-right"><div id="numberBox8">8.31</div><span>MVAR</span></div>
+	 <div class="stat-left">11 F2 Q</div><div class="stat-right"><div id="numberBox8">-8.31</div><span>MVAR</span></div>
 	 </div>
 	 <div class="green-button">Local</div><div class="red-button">Manual</div>
 </div>
@@ -1210,7 +1226,7 @@
 
 
 <script>
-  const numbers2 = [1.12, 1.13, 1.10, 1.16, 1.14]; // You can customize this
+  const numbers2 = [-16.6, -16.7, -16.8, -16.6, -16.7]; // You can customize this
   let index2 = 0;
 
   const numberBox2 = document.getElementById('numberBox2');
@@ -1226,7 +1242,7 @@
 </script>
 
 <script>
-  const numbers4 = [1.18, 1.16, 1.13, 1.11]; // You can customize this
+  const numbers4 = [-16.8, -16.6, -16.7, -16.6, -16.7]; // You can customize this
   let index4 = 0;
 
   const numberBox4 = document.getElementById('numberBox4');
@@ -1274,7 +1290,7 @@
 </script>
 
 <script>
-  const numbers7 = [8.31, 8.42, 8.33, 8.29]; // You can customize this
+  const numbers7 = [-8.31, -8.42, -8.33, -8.29]; // You can customize this
   let index7 = 0;
 
   const numberBox7 = document.getElementById('numberBox7');
@@ -1290,7 +1306,7 @@
 </script>
 
 <script>
-  const numbers8 = [8.32, 8.47, 8.36, 8.41]; // You can customize this
+  const numbers8 = [-8.32, -8.47, -8.36, -8.41]; // You can customize this
   let index8 = 0;
 
   const numberBox8 = document.getElementById('numberBox8');
