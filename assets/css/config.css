@@ -361,6 +361,7 @@ width:28px;
     .option, .optionT {
       padding: .5rem 1rem;
 	  font-size:.9rem;
+	  cursor:default;
     }
     .option:hover {
       background-color: rgba(0,0,0,0.2);
