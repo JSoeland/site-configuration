@@ -45,7 +45,7 @@
 .alarm-pill i {color:#ff3e32; margin-right:4px;}
 .alarm-pill:hover {background:#851414;}
 .tile-cog:hover {color:#bababa;}
-.alarm-pill-high {border-radius:6px; padding:4px 8px 3px 8px; border:1px solid #FC8F2B; background:#512701; color:#fff; float:right; margin-left: 8px;}
+.alarm-pill-high {border-radius:6px; padding:4px 8px 3px 8px; border:1px solid #FC8F2B; background:#100000; color:#fff; float:right; margin-left: 8px;}
 .alarm-pill-high i {color:#FC8F2B; margin-right:4px;}
 .alarm-pill-high:hover {background:#A35610;}
 
@@ -1479,7 +1479,7 @@ display:inline-block;
 #snackbar {
   left: 0;
   width: 100%;
-  background-color: #1a0d03;
+  background-color: #100000;
   color: #fff;
   padding: 16px 16px;
   display: flex;
@@ -1549,7 +1549,7 @@ small.max-width {
     }
 	
 	.alarm-card {
-		background-color:#180b01;
+		background-color:#100000;
 		border:1px solid #FC8F2B !important
 	}
 	
