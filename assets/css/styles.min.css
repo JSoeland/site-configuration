@@ -1897,3 +1897,13 @@ small #tenMinutesAgoTime {
 	font-size:.8rem;
 	margin-right:.5rem;
 }
+#numberBox .label {
+    font-size: 0.8rem;
+  }
+  
+  .tile.met-station {
+	  position:absolute;
+	  right:32px;
+	  top:340px;
+	  width:250px;
+  }
