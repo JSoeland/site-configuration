@@ -169,8 +169,8 @@
       justify-content: space-between;
 	   background-color: rgba(0,0,0,0.4);
 	   padding:1rem;
-	   position:fixed;
-	   right:40px;
+	   position:absolute;
+	   right:32px;
 	   top:180px;
     }
 	.legend h6 {
@@ -818,6 +818,31 @@
 </div>
 </div>
 
+
+<div class="legend">
+  <h6>Legend</h6>
+  <div class="tile-stats">
+	 <div class="stat-left">Energized</div><div class="stat-right" style="color:#FF3E32;">----</div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">De-Energized</div><div class="stat-right">----</div>
+	 </div>
+ </div>	
+<div class="tile met-station">
+  <div class="tile-header">
+    <h2>Met Station</h2>
+	 <div class="tile-stats">
+	 <div class="stat-left">POA Irradiance</div><div class="stat-right"><div id="numberBoxMet">490</div><span>W/m²</span></div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">Air Temp</div><div class="stat-right">31.95<span>°C</span></div>
+	 </div>
+	 <div class="tile-stats">
+	 <div class="stat-left">Wind Speed</div><div class="stat-right">1.70<span>m/s</span></div>
+	 </div>
+  </div>
+</div>	
+
 <div id="moveable-box">
 <div class="source"></div>
 <div class="power-line-container"></div>
@@ -944,15 +969,7 @@
 <div><img src="assets/images/transformer.svg"></div>
 </div>
 
-<div class="legend">
-  <h6>Legend</h6>
-  <div class="tile-stats">
-	 <div class="stat-left">Energized</div><div class="stat-right" style="color:#FF3E32;">----</div>
-	 </div>
-	 <div class="tile-stats">
-	 <div class="stat-left">De-Energized</div><div class="stat-right">----</div>
-	 </div>
- </div>	
+
 	
 	
 <div class="capbank"><img src="assets/images/capBank.svg"><h6>Capacitor Bank<span>12 MVAR</span></h6></div>	
