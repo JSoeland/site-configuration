@@ -1120,12 +1120,13 @@
   const numberBox = document.getElementById('numberBox');
 
   function updateNumber() {
-    numberBox.textContent = numbers[index];
-    index = (index + 1) % numbers.length; // Loop back to 0 after last
+    const number = numbers[index].toFixed(2); // Format number if needed
+    const label = '<span class="label"> MW</span>'; // Add styled label
+    numberBox.innerHTML = `<strong>${number}</strong>${label}`;
+    index = (index + 1) % numbers.length;
   }
 
-  setInterval(updateNumber, 3000); // Change every 3 seconds
-
+  setInterval(updateNumber, 5000);
   updateNumber(); // Initial display
 </script>
 
